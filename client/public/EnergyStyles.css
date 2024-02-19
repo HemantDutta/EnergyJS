@@ -7,6 +7,10 @@
 
 :root {
     --bg-color: #000000;
+    --blue-1: #687EFF;
+    --blue-2: #80B3FF;
+    --blue-3: #98E4FF;
+    --blue-4: #B6FFFA;
 }
 
 /*==========Common CSS==========*/
@@ -29,6 +33,27 @@ body {
 
 nav {
     z-index: 999;
+}
+
+nav .left ul li a {
+    position: relative;
+}
+
+nav .left ul li a:after {
+    content: "";
+    position: absolute;
+    bottom: 30%;
+    left: 20%;
+    transform-origin: left;
+    width: 30%;
+    height: 2px;
+    background-color: var(--blue-2);
+    transition: all 0.5s cubic-bezier(0.87, 0, 0.13, 1);
+    transform: scaleX(0);
+}
+
+nav .left ul li a:hover:after, nav .left ul li a.active:after {
+    transform: scaleX(1);
 }
 
 /*==========Navbar End==========*/
