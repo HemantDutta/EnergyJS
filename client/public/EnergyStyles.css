@@ -1,9 +1,5 @@
 /*EnergyJS StyleSheet | Written By Hemant Dutta https://github.com/HemantDutta/EnergyJS.git*/
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /*zIndex Chart*/
 /*Navbar: 999*/
 /*Container: 100*/
@@ -31,6 +27,8 @@ body {
 
 /*==========Navbar==========*/
 
-
+nav {
+    z-index: 999;
+}
 
 /*==========Navbar End==========*/
