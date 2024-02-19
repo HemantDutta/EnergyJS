@@ -1,2 +1,36 @@
 /*EnergyJS StyleSheet | Written By Hemant Dutta https://github.com/HemantDutta/EnergyJS.git*/
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*zIndex Chart*/
+/*Navbar: 999*/
+/*Container: 100*/
+/*zIndex Chart End*/
+
+:root {
+    --bg-color: #000000;
+}
+
+/*==========Common CSS==========*/
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--bg-color);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    display: none;
+}
+
+/*==========Common CSS End==========*/
+
+/*==========Navbar==========*/
+
+
+
+/*==========Navbar End==========*/
