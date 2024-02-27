@@ -7,10 +7,26 @@
 
 :root {
     --bg-color: #000000;
-    --blue-1: #687EFF;
+    --blue-1: #79f1f7;
     --blue-2: #80B3FF;
     --blue-3: #98E4FF;
     --blue-4: #B6FFFA;
+}
+
+.blue-1 {
+    color: var(--blue-1);
+}
+
+.blue-2 {
+    color: var(--blue-2);
+}
+
+.blue-3 {
+    color: var(--blue-3);
+}
+
+.blue-4 {
+    color: var(--blue-4);
 }
 
 /*==========Common CSS==========*/
@@ -20,12 +36,83 @@ body {
     padding: 0;
     overflow-x: hidden;
     background-color: var(--bg-color);
+    font-family: "Roboto", sans-serif;
 }
 
 ::-webkit-scrollbar {
     width: 5px;
     display: none;
 }
+
+/*Fonts*/
+
+.anta {
+    font-family: "Anta", "Roboto", sans-serif;
+}
+
+.kode {
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*Fonts End*/
+
+/*Chip Design*/
+
+.chip {
+    color: white;
+    background-image: linear-gradient(to right, rgba(121, 241, 247, 0.4), rgba(128, 179, 255, 0.4), rgba(0,0,0.4));
+    padding: 10px 24px;
+    background-size: 200% 200%;
+    background-position: 100% 50%;
+    transition: background-position 0.4s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.chip:hover {
+    background-position: 0 0;
+}
+
+/*Chip Design End*/
+
+/*Button Styles*/
+
+.energy-button-1 {
+    padding: 10px 24px;
+    background-color: var(--blue-1);
+    cursor: pointer;
+    box-shadow: -5px 5px rgba(121, 241, 247, 0.4);
+    color: black;
+}
+
+.energy-button-2 {
+    padding: 10px 24px;
+    background-color: var(--bg-color);
+    cursor: pointer;
+    box-shadow: -5px 5px rgba(128, 128, 128, 0.4);
+    color: white;
+}
+
+.click {
+    transition: all 0.2s ease;
+}
+
+.click:active {
+    scale: 0.95;
+}
+
+/*Button Styles End*/
+
+/*Text Gradient*/
+
+.text-gradient {
+    background: linear-gradient(to right, var(--blue-1), var(--blue-2), var(--bg-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*Text Gradient End*/
 
 /*==========Common CSS End==========*/
 
@@ -57,3 +144,26 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 }
 
 /*==========Navbar End==========*/
+
+/*==========Hero==========*/
+
+.hero {
+    background-image: linear-gradient(#79f1f7 1.5px, transparent 1.5px, transparent calc(100% - 1.5px), #79f1f7 calc(100% - 1.5px)), linear-gradient(90deg, #79f1f7 1.5px, transparent 1.5px, transparent calc(100% - 1.5px), #79f1f7 calc(100% - 1.5px));
+    background-size: 20% 20%;
+    border: 1.5px solid #79f1f7;
+}
+
+.hero .hero-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0.6));
+}
+
+.hero .hero-content span.high-tag {
+    color: white;
+    font-size: 24px;
+}
+
+.hero .hero-content span.head {
+
+}
+
+/*==========Hero End==========*/
