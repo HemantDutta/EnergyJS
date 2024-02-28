@@ -1,5 +1,6 @@
 import {Navbar} from "../components/Navbar";
 import {FeatureCard} from "../components/FeatureCard";
+import {Footer} from "../components/Footer";
 
 export const Home = () => {
 
@@ -71,6 +72,9 @@ export const Home = () => {
 
             </div>
             {/*  Home Body End  */}
+            {/*  Footer  */}
+            <Footer/>
+            {/*  Footer End  */}
         </>
     )
 }

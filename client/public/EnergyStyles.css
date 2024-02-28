@@ -271,3 +271,11 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 }
 
 /*==========Features End==========*/
+
+/*==========Footer==========*/
+
+footer .footer-container .bottom {
+    border-top: 1px solid slategray;
+}
+
+/*==========Footer End==========*/
