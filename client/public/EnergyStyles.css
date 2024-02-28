@@ -148,7 +148,7 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 /*==========Hero==========*/
 
 .hero {
-    background-image: linear-gradient(#79f1f7 1.5px, transparent 1.5px, transparent calc(100% - 1.5px), #79f1f7 calc(100% - 1.5px)), linear-gradient(90deg, #79f1f7 1.5px, transparent 1.5px, transparent calc(100% - 1.5px), #79f1f7 calc(100% - 1.5px));
+    background-image: linear-gradient(var(--blue-1) 1.5px, transparent 1.5px, transparent calc(100% - 1.5px), var(--blue-1) calc(100% - 1.5px)), linear-gradient(90deg, #79f1f7 1.5px, transparent 1.5px, transparent calc(100% - 1.5px), #79f1f7 calc(100% - 1.5px));
     background-size: 20% 20%;
     animation: moveBg 40s infinite cubic-bezier(0.87, 0, 0.13, 1) alternate-reverse;
 }
@@ -164,19 +164,39 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
         background-position: 60% 100%;
     }
 
+    15%{
+        background-size: 20% 20%;
+        background-position: 80% 120%;
+    }
+
     20% {
         background-size: 40% 40%;
-        background-position: 80% 200%;
+        background-position: 120% 200%;
+    }
+
+    25%{
+        background-size: 45% 40%;
+        background-position: 100% 180%;
     }
 
     30% {
         background-size: 60% 40%;
-        background-position: 40% 100%;
+        background-position: 20% 80%;
+    }
+
+    35% {
+        background-size: 50% 35%;
+        background-position: 20% 100%;
     }
 
     40% {
         background-size: 30% 30%;
-        background-position: 20% 50%;
+        background-position: 20% 160%;
+    }
+
+    45% {
+        background-size: 30% 30%;
+        background-position: 30% 160%;
     }
 
     50% {
@@ -186,12 +206,12 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 
     60% {
         background-size: 40% 60%;
-        background-position: 100% 60%;
+        background-position: 40% 90%;
     }
 
     70% {
         background-size: 60% 60%;
-        background-position: 50% 100%;
+        background-position: 150% 60%;
     }
 
     80% {
@@ -226,3 +246,16 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 }
 
 /*==========Hero End==========*/
+
+/*==========Features==========*/
+
+.features .feature-grid .grid-image .grid-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(0,0,0,1), transparent);
+}
+
+/*==========Features End==========*/
