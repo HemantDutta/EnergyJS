@@ -14,10 +14,10 @@ export const Navbar = ({page}) => {
                                 <Link className={`${page==="home"?"active":""} duration-500 h-full grid place-items-center text-2xl font-bold text-white py-8 px-8 cursor-pointer hover:bg-white hover:text-black`} to={"/"}>Home</Link>
                             </li>
                             <li className="lg:grid hidden place-items-center">
-                                <Link className={`${page==="about"?"active":""} duration-500 h-full grid place-items-center text-2xl font-bold text-white py-8 px-8 cursor-pointer hover:bg-white hover:text-black`} to={"/"}>About</Link>
+                                <Link className={`${page==="about"?"active":""} duration-500 h-full grid place-items-center text-2xl font-bold text-white py-8 px-8 cursor-pointer hover:bg-white hover:text-black`} to={"/about"}>About</Link>
                             </li>
                             <li className="lg:grid hidden place-items-center">
-                                <Link className={`${page==="docs"?"active":""} duration-500 h-full grid place-items-center text-2xl font-bold text-white py-8 px-8 cursor-pointer hover:bg-white hover:text-black`} to={"/"}>Docs</Link>
+                                <Link className={`${page==="docs"?"active":""} duration-500 h-full grid place-items-center text-2xl font-bold text-white py-8 px-8 cursor-pointer hover:bg-white hover:text-black`} to={"/docs"}>Docs</Link>
                             </li>
                         </ul>
                     </div>

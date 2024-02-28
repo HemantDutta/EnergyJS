@@ -10,6 +10,9 @@ export const Home = () => {
     //States
     const [activeEffect, setActiveEffect] = useState("trans2d");
 
+    //XY States
+    const [x, setX] = useState("0");
+
     //Features
     const features = [
         {
@@ -72,7 +75,10 @@ export const Home = () => {
                     <div className="hero-overlay absolute h-screen w-screen top-0 left-0 z-10"/>
                     <div className="hero-content relative z-50 h-full flex flex-col gap-10 items-center justify-end">
                         <a href="https://github.com/HemantDutta/EnergyJS" className="high-tag chip sm:text-xl text-sm kode" rel="noreferrer" target="_blank">Github <i className="fa-brands fa-github"/></a>
-                        <span className="head sm:text-9xl text-7xl text-white anta text-gradient">EnergyJS</span>
+                        <header className="relative">
+                            <span className="version blue-1 font-bold kode absolute -right-5 -top-5">v1.0</span>
+                            <span className="head sm:text-9xl text-7xl text-white anta text-gradient">EnergyJS</span>
+                        </header>
                         <span className="low-tag text-center text-gray-500 sm:w-1/2 w-full">Free lightweight JavaScript animation library created by <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="transition hover:text-white">Hemant Dutta</a></span>
                         <div className="cta flex flex-row gap-5 items-center flex-wrap justify-center">
                             <span className="kode energy-button-1 click">Get energy.min.js</span>
@@ -115,21 +121,40 @@ export const Home = () => {
                             <div className="effect-container flex flex-col">
                                 <span className="head text-white py-5 kode text-3xl">Choose an effect</span>
                                 <div className="effect-bar flex flex-row flex-wrap">
-                                    <span className={`text-white effect text-lg px-10 py-5 cursor-pointer ${activeEffect === "trans2d" ? "active" : ""}`} onClick={() => {
+                                    <span className={`text-white effect text-lg kode px-10 py-5 cursor-pointer ${activeEffect === "trans2d" ? "active" : ""}`} onClick={() => {
                                         setActiveEffect("trans2d")
                                     }} tabIndex={0}>Translate2D</span>
-                                    <span className={`text-white effect text-lg px-10 py-5 cursor-pointer ${activeEffect === "opacity" ? "active" : ""}`} onClick={() => {
+                                    <span className={`text-white effect text-lg kode px-10 py-5 cursor-pointer ${activeEffect === "opacity" ? "active" : ""}`} onClick={() => {
                                         setActiveEffect("opacity")
                                     }} tabIndex={0}>Opacity</span>
-                                    <span className={`text-white effect text-lg px-10 py-5 cursor-pointer ${activeEffect === "scale2d" ? "active" : ""}`} onClick={() => {
+                                    <span className={`text-white effect text-lg kode px-10 py-5 cursor-pointer ${activeEffect === "scale2d" ? "active" : ""}`} onClick={() => {
                                         setActiveEffect("scale2d")
                                     }} tabIndex={0}>Scale2D</span>
-                                    <span className={`text-white effect text-lg px-10 py-5 cursor-pointer ${activeEffect === "rotate" ? "active" : ""}`} onClick={() => {
+                                    <span className={`text-white effect text-lg kode px-10 py-5 cursor-pointer ${activeEffect === "rotate" ? "active" : ""}`} onClick={() => {
                                         setActiveEffect("rotate")
                                     }} tabIndex={0}>Rotate</span>
-                                    <span className={`text-white effect text-lg px-10 py-5 cursor-pointer ${activeEffect === "blur" ? "active" : ""}`} onClick={() => {
+                                    <span className={`text-white effect text-lg kode px-10 py-5 cursor-pointer ${activeEffect === "blur" ? "active" : ""}`} onClick={() => {
                                         setActiveEffect("blur")
                                     }} tabIndex={0}>Blur</span>
+                                </div>
+                                <div className="parameter-bar flex items-center flex-wrap gap-5 py-10">
+                                    {
+                                        (activeEffect === "trans2d" || activeEffect === "scale2d") &&
+                                        <>
+                                            <div className="param-wrapper flex flex-col sm:w-1/4">
+                                                <label htmlFor="x" className="text-white">X</label>
+                                                <input type="number" name="x" id="x" className="bg-gray-900 text-white p-2 outline-0" placeholder="e.g 100 or -100"/>
+                                            </div>
+                                            <div className="param-wrapper flex flex-col sm:w-1/4">
+                                                <label htmlFor="y" className="text-white">Y</label>
+                                                <input type="number" name="y" id="y" className="bg-gray-900 text-white p-2 outline-0" placeholder="e.g 100 or -100"/>
+                                            </div>
+                                        </>
+                                    }
+                                    <div className="param-wrapper flex flex-col sm:w-1/4">
+                                        <label htmlFor="dur" className="text-white">Duration</label>
+                                        <input type="number" name="dur" id="dur" className="bg-gray-900 text-white p-2 outline-0" placeholder="in ms"/>
+                                    </div>
                                 </div>
                             </div>
                             <div className="effect-sandbox overflow-hidden bg-gray-900 grid place-items-center">

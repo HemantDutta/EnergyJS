@@ -22,7 +22,7 @@ export const Footer = () => {
                     </ul>
                 </div>
                 <div className="brand col-span-4 text-right">
-                    <span className="lg:text-9xl md:text-8xl sm:text-7xl text-5xl text-gradient">EnergyJS</span>
+                    <span className="lg:text-9xl md:text-8xl sm:text-7xl text-5xl text-gradient anta">EnergyJS</span>
                 </div>
                 <div className="bottom flex gap-5 flex-row flex-wrap justify-between items-center col-span-6 pt-5">
                     <div className="left copyright text-gray-500">&copy; <a href="https://github.com/HemantDutta/EnergyJS" rel="noreferrer" target="_blank" className="transition hover:text-white">EnergyJS</a> by <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="transition hover:text-white">Hemant Dutta</a></div>
