@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 export const Footer = () => {
     return (
         <footer>
-            <div className="footer-container grid grid-cols-6 gap-x-10 sm:px-20 py-10 gap-y-10">
+            <div className="footer-container grid grid-cols-6 gap-x-10 lg:px-20 px-5 py-10 gap-y-10">
                 <div className="links sitemap col-span-1">
                     <span className="head text-2xl text-gray-500">Sitemap</span>
                     <ul>
@@ -22,7 +22,7 @@ export const Footer = () => {
                     </ul>
                 </div>
                 <div className="brand col-span-4 text-right">
-                    <span className="lg:text-9xl text-5xl text-gradient">EnergyJS</span>
+                    <span className="lg:text-9xl md:text-8xl sm:text-7xl text-5xl text-gradient">EnergyJS</span>
                 </div>
                 <div className="bottom flex gap-5 flex-row flex-wrap justify-between items-center col-span-6 pt-5">
                     <div className="left copyright text-gray-500">&copy; <a href="https://github.com/HemantDutta/EnergyJS" rel="noreferrer" target="_blank" className="transition hover:text-white">EnergyJS</a> by <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="transition hover:text-white">Hemant Dutta</a></div>

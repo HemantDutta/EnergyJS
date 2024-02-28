@@ -278,4 +278,15 @@ footer .footer-container .bottom {
     border-top: 1px solid slategray;
 }
 
+@media screen and (max-width: 640px) {
+    footer .footer-container .brand {
+        grid-column: 1/-1;
+        text-align: center;
+    }
+
+    footer .footer-container .sitemap {
+        grid-column: 1/4;
+    }
+}
+
 /*==========Footer End==========*/
