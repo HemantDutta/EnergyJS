@@ -48,10 +48,10 @@ export const Home = () => {
             elem.scale2D(0,0, 800);
         }
         else if(activeEffect === "rotate") {
-            elem.rotate(Math.floor((Math.random()*360) + 1), 800);
+            elem.rotate(360,800);
         }
         else if(activeEffect === "blur") {
-            elem.blur(Math.floor((Math.random()*100)+1), 800);
+            elem.blur(100, 800);
         }
     }
 
@@ -113,8 +113,8 @@ export const Home = () => {
                         </div>
                         <div className="right flex flex-col basis-1/2 lg:w-max w-full">
                             <div className="effect-container flex flex-col">
-                                <span className="head chip text-3xl">Choose an effect</span>
-                                <div className="effect-bar flex flex-row flex-wrap gap-2 py-5">
+                                <span className="head text-white py-5 kode text-3xl">Choose an effect</span>
+                                <div className="effect-bar flex flex-row flex-wrap">
                                     <span className={`text-white effect text-lg px-10 py-5 cursor-pointer ${activeEffect === "trans2d" ? "active" : ""}`} onClick={() => {
                                         setActiveEffect("trans2d")
                                     }} tabIndex={0}>Translate2D</span>
@@ -132,7 +132,7 @@ export const Home = () => {
                                     }} tabIndex={0}>Blur</span>
                                 </div>
                             </div>
-                            <div className="effect-sandbox overflow-hidden grid place-items-center">
+                            <div className="effect-sandbox overflow-hidden bg-gray-900 grid place-items-center">
                                 <div className="sandbox-elem bg-white aspect-square" id="elem"/>
                             </div>
                         </div>

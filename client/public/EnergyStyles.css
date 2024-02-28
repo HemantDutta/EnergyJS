@@ -273,7 +273,6 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 /*==========Features End==========*/
 
 /*==========Playground==========*/
-
 .playground .content .right .effect-container .effect-bar .effect:hover {
     background: linear-gradient(to right, rgba(121, 241, 247, 0.4), rgba(128, 179, 255, 0.4));
 }
