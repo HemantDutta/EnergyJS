@@ -63,7 +63,7 @@ body {
 
 .chip {
     color: white;
-    background-image: linear-gradient(to right, rgba(121, 241, 247, 0.4), rgba(128, 179, 255, 0.4), rgba(0,0,0.4));
+    background-image: linear-gradient(to right, rgba(121, 241, 247, 0.4), rgba(128, 179, 255, 0.4), rgba(0, 0, 0.4));
     padding: 10px 24px;
     background-size: 200% 200%;
     background-position: 100% 50%;
@@ -164,7 +164,7 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
         background-position: 60% 100%;
     }
 
-    15%{
+    15% {
         background-size: 20% 20%;
         background-position: 80% 120%;
     }
@@ -174,7 +174,7 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
         background-position: 120% 200%;
     }
 
-    25%{
+    25% {
         background-size: 45% 40%;
         background-position: 100% 180%;
     }
@@ -231,7 +231,7 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 }
 
 .hero .hero-overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0.6));
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0, rgba(0, 0, 0, 0.8) 55%, rgba(0, 0, 0, 0.6));
 }
 
 .hero .hero-content span.high-tag {
@@ -255,7 +255,19 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to right, rgba(0,0,0,1), transparent);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
+}
+
+@media screen and (max-width: 1291px) {
+    .features .feature-grid > * {
+        grid-column: 1/-1;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .features header span.head {
+        font-size: 32px;
+    }
 }
 
 /*==========Features End==========*/
