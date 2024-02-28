@@ -1,8 +1,14 @@
 import {Navbar} from "../components/Navbar";
 import {FeatureCard} from "../components/FeatureCard";
 import {Footer} from "../components/Footer";
+import {Link} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {Energy} from "../energy";
 
 export const Home = () => {
+
+    //States
+    const [activeEffect, setActiveEffect] = useState("trans2d");
 
     //Features
     const features = [
@@ -26,7 +32,33 @@ export const Home = () => {
             title: "Use Anywhere",
             des: "Use it with React, Vue, Svelte, Angular, Next or just plain JavaScript. EnergyJs is framework independent.",
         },
-    ]
+    ];
+
+    //Playground EnergyJS Function
+    function playgroundEnergy() {
+        const elem = new Energy("#elem");
+
+        if(activeEffect === "trans2d") {
+            elem.translate2D(Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), 800);
+        }
+        else if(activeEffect === "opacity") {
+            elem.opacity(0, 800);
+        }
+        else if(activeEffect === "scale2d") {
+            elem.scale2D(0,0, 800);
+        }
+        else if(activeEffect === "rotate") {
+            elem.rotate(Math.floor((Math.random()*360) + 1), 800);
+        }
+        else if(activeEffect === "blur") {
+            elem.blur(Math.floor((Math.random()*100)+1), 800);
+        }
+    }
+
+    //Call PlaygroundEnergy on State Change
+    useEffect(()=>{
+        playgroundEnergy();
+    },[activeEffect])
 
     return (
         <>
@@ -69,7 +101,44 @@ export const Home = () => {
                     </div>
                 </section>
                 {/*  Features End  */}
-
+                {/*  Playground  */}
+                <section className="playground sm:px-10 px-5 py-20" id="playground">
+                    <header>
+                        <span className="head text-5xl sm:text-7xl text-white anta text-gradient">{"<Playground/>"}</span>
+                    </header>
+                    <div className="content flex lg:flex-row flex-col items-center lg:gap-10 gap-20 py-20">
+                        <div className="left intro flex flex-col gap-5 basis-1/2">
+                            <span className="head text-5xl text-white anta">Want a test drive?</span>
+                            <span className="des text-gray-500">Give EnergyJS a shot, right here in our playground! Try out a few of our many animations methods. For complete details, visit our <Link to={"/docs"} className="underline transition hover:text-white kode">docs</Link></span>
+                        </div>
+                        <div className="right flex flex-col basis-1/2 lg:w-max w-full">
+                            <div className="effect-container flex flex-col">
+                                <span className="head chip text-3xl">Choose an effect</span>
+                                <div className="effect-bar flex flex-row flex-wrap gap-2 py-5">
+                                    <span className={`text-white effect text-lg px-10 py-5 cursor-pointer ${activeEffect === "trans2d" ? "active" : ""}`} onClick={() => {
+                                        setActiveEffect("trans2d")
+                                    }} tabIndex={0}>Translate2D</span>
+                                    <span className={`text-white effect text-lg px-10 py-5 cursor-pointer ${activeEffect === "opacity" ? "active" : ""}`} onClick={() => {
+                                        setActiveEffect("opacity")
+                                    }} tabIndex={0}>Opacity</span>
+                                    <span className={`text-white effect text-lg px-10 py-5 cursor-pointer ${activeEffect === "scale2d" ? "active" : ""}`} onClick={() => {
+                                        setActiveEffect("scale2d")
+                                    }} tabIndex={0}>Scale2D</span>
+                                    <span className={`text-white effect text-lg px-10 py-5 cursor-pointer ${activeEffect === "rotate" ? "active" : ""}`} onClick={() => {
+                                        setActiveEffect("rotate")
+                                    }} tabIndex={0}>Rotate</span>
+                                    <span className={`text-white effect text-lg px-10 py-5 cursor-pointer ${activeEffect === "blur" ? "active" : ""}`} onClick={() => {
+                                        setActiveEffect("blur")
+                                    }} tabIndex={0}>Blur</span>
+                                </div>
+                            </div>
+                            <div className="effect-sandbox overflow-hidden grid place-items-center">
+                                <div className="sandbox-elem bg-white aspect-square" id="elem"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {/*  Playground End  */}
             </div>
             {/*  Home Body End  */}
             {/*  Footer  */}

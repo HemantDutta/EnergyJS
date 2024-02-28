@@ -272,6 +272,34 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 
 /*==========Features End==========*/
 
+/*==========Playground==========*/
+
+.playground .content .right .effect-container .effect-bar .effect:hover {
+    background: linear-gradient(to right, rgba(121, 241, 247, 0.4), rgba(128, 179, 255, 0.4));
+}
+
+.playground .content .right .effect-container .effect-bar .effect.active{
+    background: linear-gradient(to right, rgba(121, 241, 247, 0.4), rgba(128, 179, 255, 0.4));
+    border-bottom: 5px solid white;
+}
+
+.playground .content .right .effect-sandbox {
+    height: 500px;
+    width: 100%;
+}
+
+.playground .content .right .effect-sandbox .sandbox-elem {
+    height: 150px;
+}
+
+@media screen and (max-width: 350px) {
+    .playground header .head {
+        font-size: 32px;
+    }
+}
+
+/*==========Playground End==========*/
+
 /*==========Footer==========*/
 
 footer .footer-container .bottom {
