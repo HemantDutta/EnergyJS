@@ -1,4 +1,5 @@
 import {Navbar} from "../components/Navbar";
+import {FeatureCard} from "../components/FeatureCard";
 
 export const Home = () => {
 
@@ -37,9 +38,9 @@ export const Home = () => {
                 <section className="hero h-screen w-full relative py-20 px-5 sm:px-10" id="hero">
                     <div className="hero-overlay absolute h-screen w-screen top-0 left-0 z-10"/>
                     <div className="hero-content relative z-50 h-full flex flex-col gap-10 items-center justify-end">
-                        <a href="https://github.com/HemantDutta" className="high-tag chip sm:text-xl text-sm kode" rel="noreferrer" target="_blank">Github <i className="fa-brands fa-github"/></a>
+                        <a href="https://github.com/HemantDutta/EnergyJS" className="high-tag chip sm:text-xl text-sm kode" rel="noreferrer" target="_blank">Github <i className="fa-brands fa-github"/></a>
                         <span className="head sm:text-9xl text-7xl text-white anta text-gradient">EnergyJS</span>
-                        <span className="low-tag text-center text-gray-500 sm:w-1/2 w-full">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda delectus eum labore, necessitatibus, numquam odit omnis perspiciatis provident quam qui quisquam rerum, sapiente sed sit vero voluptate? Accusantium, autem.</span>
+                        <span className="low-tag text-center text-gray-500 sm:w-1/2 w-full">Free lightweight JavaScript animation library created by <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="transition hover:text-white">Hemant Dutta</a></span>
                         <div className="cta flex flex-row gap-5 items-center flex-wrap justify-center">
                             <span className="kode energy-button-1 click">Get energy.min.js</span>
                             <span className="kode energy-button-2 click">Get Started</span>
@@ -56,11 +57,7 @@ export const Home = () => {
                         {
                             features.map((value, index) => {
                                 return (
-                                    <div key={index} className="feature-card flex flex-col gap-5 col-span-1 w-full">
-                                        <img src={value.icon} alt={value.title} className="w-max"/>
-                                        <span className="title text-white text-2xl sm:text-3xl kode chip">{value.title}</span>
-                                        <span className="des text-white">{value.des}</span>
-                                    </div>
+                                    <FeatureCard value={value} key={index}/>
                                 )
                             })
                         }
@@ -71,6 +68,7 @@ export const Home = () => {
                     </div>
                 </section>
                 {/*  Features End  */}
+
             </div>
             {/*  Home Body End  */}
         </>
