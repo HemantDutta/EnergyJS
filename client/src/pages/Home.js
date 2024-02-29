@@ -149,13 +149,16 @@ export const Home = () => {
                     <div className="hero-content relative z-50 h-full flex flex-col gap-10 items-center justify-end">
                         <a href="https://github.com/HemantDutta/EnergyJS" className="high-tag chip sm:text-xl text-sm kode" rel="noreferrer" target="_blank">Github <i className="fa-brands fa-github"/></a>
                         <header className="relative">
-                            <span className="version blue-1 font-bold kode absolute -right-5 -top-5">v1.0</span>
+                            <span className="version blue-1 font-bold kode absolute -right-5 -top-5">v0.1(beta)</span>
                             <span className="head sm:text-9xl text-7xl text-white anta text-gradient">EnergyJS</span>
                         </header>
                         <span className="low-tag text-center text-gray-500 sm:w-1/2 w-full">Free lightweight JavaScript animation library created by <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="transition hover:text-white">Hemant Dutta</a></span>
                         <div className="cta flex flex-row gap-5 items-center flex-wrap justify-center">
                             <span className="kode energy-button-1 click">Get energy.min.js</span>
                             <span className="kode energy-button-2 click">Get Started</span>
+                        </div>
+                        <div className="downloads">
+                            <span className="kode text-gray-500">Total Downloads: 10</span>
                         </div>
                     </div>
                 </section>

@@ -19,6 +19,7 @@ export const Footer = () => {
                         <li className="text-lg text-gray-400 transition hover:text-white w-max"><Link to={"/docs"} state="getStarted">Get Started</Link></li>
                         <li className="text-lg text-gray-400 transition hover:text-white w-max"><Link to={"/docs"} state="installation">Installation</Link></li>
                         <li className="text-lg text-gray-400 transition hover:text-white w-max"><Link to={"/docs"} state="examples">Examples</Link></li>
+                        <li className="text-lg text-gray-400 transition hover:text-white w-max"><Link to={"/docs"} state="guidelines">Guidelines</Link></li>
                     </ul>
                 </div>
                 <div className="brand col-span-4 text-right">

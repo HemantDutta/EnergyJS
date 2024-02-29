@@ -329,6 +329,34 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 
 /*==========About & Contact End==========*/
 
+/*==========Docs==========*/
+
+.docs:not(footer .docs) {
+    background: #14151a;
+}
+
+nav.docs {
+    background: #14151a;
+}
+
+.docs:not(footer .docs) aside {
+    width: 350px;
+}
+
+.docs:not(footer .docs) aside .panel-list li.active {
+    border-left: 2px solid white;
+}
+
+@media screen and (max-width: 1025px) {
+    .docs:not(footer .docs) aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+    }
+}
+/*==========Docs End==========*/
+
 /*==========Footer==========*/
 
 footer .footer-container .bottom {

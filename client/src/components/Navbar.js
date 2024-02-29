@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 export const Navbar = ({page}) => {
     return(
         <>
-            <nav className="fixed w-full top-0 left-0">
+            <nav className={`fixed w-full top-0 left-0 ${page === "docs"? "border-b-2 docs":""}`}>
                 <div className="nav-container flex justify-between">
                     <div className="left">
                         <ul className="flex items-stretch">
