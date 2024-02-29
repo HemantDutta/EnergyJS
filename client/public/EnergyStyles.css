@@ -321,6 +321,12 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
     background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.7), transparent);
 }
 
+@media screen and (max-width: 600px) {
+    .about .about-hero .overlay {
+        background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.9), rgba(0,0,0,0.8), transparent);
+    }
+}
+
 /*==========About End==========*/
 
 /*==========Footer==========*/
