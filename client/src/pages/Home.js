@@ -2,16 +2,43 @@ import {Navbar} from "../components/Navbar";
 import {FeatureCard} from "../components/FeatureCard";
 import {Footer} from "../components/Footer";
 import {Link} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Energy} from "../energy";
 
 export const Home = () => {
 
+    //refs
+    const err = useRef(null);
+
     //States
     const [activeEffect, setActiveEffect] = useState("trans2d");
+    const [errCount, setErrCount] = useState(0);
 
     //XY States
-    const [x, setX] = useState("0");
+    const [x, setX] = useState("");
+    const [y, setY] = useState("");
+
+    //Blur State
+    const [blur, setBlur] = useState("");
+
+    //Rotate State
+    const [degree, setDegree] = useState("");
+
+    //Opacity State
+    const [opacity, setOpacity] = useState("");
+
+    //Duration State
+    const [dur, setDur] = useState("800");
+
+    //Clear States
+    function clearStates() {
+        setX("");
+        setBlur("100");
+        setDegree("360");
+        setOpacity("");
+        setY("");
+        setDur("800");
+    }
 
     //Features
     const features = [
@@ -41,27 +68,71 @@ export const Home = () => {
     function playgroundEnergy() {
         const elem = new Energy("#elem");
 
-        if(activeEffect === "trans2d") {
-            elem.translate2D(Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), 800);
+        if(errCount<=10) {
+            if (activeEffect === "trans2d") {
+                if (x > 200 || x < -200 || y > 200 || y < -200) {
+                    err.current.innerText = "Please enter valid values of X and Y";
+                } else {
+                    err.current.innerText = "";
+                    elem.translate2D(x || Math.floor((Math.random() * 100) + 1), y || Math.floor((Math.random() * 100) + 1), dur || 800);
+                }
+            } else if (activeEffect === "opacity") {
+                if (opacity > 1 || opacity < 0) {
+                    err.current.innerText = "Please enter opacity values between 0 and 1"
+                } else {
+                    err.current.innerText = "";
+                    elem.opacity(opacity || 0, 800);
+                }
+            } else if (activeEffect === "scale2d") {
+                if (x > 200 || x < -200 || y > 200 || y < -200) {
+                    err.current.innerText = "Please enter valid values of X and Y";
+                } else {
+                    err.current.innerText = "";
+                    elem.scale2D(x || 0, y || 0, dur || 800);
+                }
+            } else if (activeEffect === "rotate") {
+                err.current.innerText = "";
+                elem.rotate(degree || 360, dur || 800);
+            } else if (activeEffect === "blur") {
+                err.current.innerText = "";
+                elem.blur(blur || 100, dur || 800);
+            }
         }
-        else if(activeEffect === "opacity") {
-            elem.opacity(0, 800);
-        }
-        else if(activeEffect === "scale2d") {
-            elem.scale2D(0,0, 800);
-        }
-        else if(activeEffect === "rotate") {
-            elem.rotate(360,800);
-        }
-        else if(activeEffect === "blur") {
-            elem.blur(100, 800);
+
+        if (dur > 10000) {
+            if (errCount === 0) {
+                err.current.innerText = "Don't enter ridiculous durations 🙏";
+            } else if (errCount === 1) {
+                err.current.innerText = "I told you! Don't do it 🙂";
+            } else if (errCount === 2) {
+                err.current.innerText = "Dude! STOP 🤬";
+            } else if (errCount === 3) {
+                err.current.innerText = "I am warning you 😠";
+            } else if (errCount === 4) {
+                err.current.innerText = "You will regret this 😤";
+            } else if (errCount === 5) {
+                err.current.innerText = "Do you have any mercy? 😢";
+            } else if (errCount === 6) {
+                err.current.innerText = "Think of the poor little box 😭";
+            } else if (errCount === 7) {
+                err.current.innerText = "You have forsaken your humanity 😔";
+            } else if (errCount === 8) {
+                err.current.innerText = "Okay then...";
+            } else if (errCount === 9) {
+                err.current.innerText = "You brought this upon yourself 🤷‍";
+            } else if (errCount === 10) {
+                err.current.innerText = "Bye Bye 👋";
+            }
+            setErrCount(prevState => prevState + 1)
+        } else {
+            err.current.innerText = "";
         }
     }
 
     //Call PlaygroundEnergy on State Change
-    useEffect(()=>{
+    useEffect(() => {
         playgroundEnergy();
-    },[activeEffect])
+    }, [activeEffect])
 
     return (
         <>
@@ -122,19 +193,24 @@ export const Home = () => {
                                 <span className="head text-white py-5 kode text-3xl">Choose an effect</span>
                                 <div className="effect-bar flex flex-row flex-wrap">
                                     <span className={`text-white effect text-lg kode px-10 py-5 cursor-pointer ${activeEffect === "trans2d" ? "active" : ""}`} onClick={() => {
-                                        setActiveEffect("trans2d")
+                                        setActiveEffect("trans2d");
+                                        clearStates();
                                     }} tabIndex={0}>Translate2D</span>
                                     <span className={`text-white effect text-lg kode px-10 py-5 cursor-pointer ${activeEffect === "opacity" ? "active" : ""}`} onClick={() => {
-                                        setActiveEffect("opacity")
+                                        setActiveEffect("opacity");
+                                        clearStates();
                                     }} tabIndex={0}>Opacity</span>
                                     <span className={`text-white effect text-lg kode px-10 py-5 cursor-pointer ${activeEffect === "scale2d" ? "active" : ""}`} onClick={() => {
-                                        setActiveEffect("scale2d")
+                                        setActiveEffect("scale2d");
+                                        clearStates();
                                     }} tabIndex={0}>Scale2D</span>
                                     <span className={`text-white effect text-lg kode px-10 py-5 cursor-pointer ${activeEffect === "rotate" ? "active" : ""}`} onClick={() => {
-                                        setActiveEffect("rotate")
+                                        setActiveEffect("rotate");
+                                        clearStates();
                                     }} tabIndex={0}>Rotate</span>
                                     <span className={`text-white effect text-lg kode px-10 py-5 cursor-pointer ${activeEffect === "blur" ? "active" : ""}`} onClick={() => {
-                                        setActiveEffect("blur")
+                                        setActiveEffect("blur");
+                                        clearStates();
                                     }} tabIndex={0}>Blur</span>
                                 </div>
                                 <div className="parameter-bar flex items-center flex-wrap gap-5 py-10">
@@ -143,22 +219,71 @@ export const Home = () => {
                                         <>
                                             <div className="param-wrapper flex flex-col sm:w-1/4">
                                                 <label htmlFor="x" className="text-white">X</label>
-                                                <input type="number" name="x" id="x" className="bg-gray-900 text-white p-2 outline-0" placeholder="e.g 100 or -100"/>
+                                                <input type="number" name="x" id="x" className="bg-gray-900 text-white p-2 outline-0" placeholder="e.g 100 or -100" value={x} onChange={(e) => {
+                                                    setX(e.target.value)
+                                                }}/>
                                             </div>
                                             <div className="param-wrapper flex flex-col sm:w-1/4">
                                                 <label htmlFor="y" className="text-white">Y</label>
-                                                <input type="number" name="y" id="y" className="bg-gray-900 text-white p-2 outline-0" placeholder="e.g 100 or -100"/>
+                                                <input type="number" name="y" id="y" className="bg-gray-900 text-white p-2 outline-0" placeholder="e.g 100 or -100" value={y} onChange={(e) => {
+                                                    setY(e.target.value)
+                                                }}/>
                                             </div>
                                         </>
                                     }
+                                    {
+                                        activeEffect === "blur" &&
+                                        <div className="param-wrapper flex flex-col sm:w-1/4">
+                                            <label htmlFor="blur" className="text-white">Amount</label>
+                                            <input type="number" name="blur" id="blur" className="bg-gray-900 text-white p-2 outline-0" placeholder="e.g 100" value={blur} onChange={(e) => {
+                                                setBlur(e.target.value)
+                                            }}/>
+                                        </div>
+                                    }
+                                    {
+                                        activeEffect === "opacity" &&
+                                        <div className="param-wrapper flex flex-col sm:w-1/4">
+                                            <label htmlFor="opacity" className="text-white">Opacity</label>
+                                            <input type="number" name="opacity" id="opacity" className="bg-gray-900 text-white p-2 outline-0" placeholder="from 0 to 1" value={opacity} onChange={(e) => {
+                                                setOpacity(e.target.value)
+                                            }}/>
+                                        </div>
+                                    }
+                                    {
+                                        activeEffect === "rotate" &&
+                                        <div className="param-wrapper flex flex-col sm:w-1/4">
+                                            <label htmlFor="deg" className="text-white">Degrees</label>
+                                            <input type="number" name="deg" id="deg" className="bg-gray-900 text-white p-2 outline-0" placeholder="e.g. 360" value={degree} onChange={(e) => {
+                                                setDegree(e.target.value)
+                                            }}/>
+                                        </div>
+                                    }
                                     <div className="param-wrapper flex flex-col sm:w-1/4">
                                         <label htmlFor="dur" className="text-white">Duration</label>
-                                        <input type="number" name="dur" id="dur" className="bg-gray-900 text-white p-2 outline-0" placeholder="in ms"/>
+                                        <input type="number" name="dur" id="dur" className="bg-gray-900 text-white p-2 outline-0" placeholder="in ms" value={dur} onChange={(e) => {
+                                            setDur(e.target.value)
+                                        }}/>
+                                    </div>
+                                    <div className="button-wrapper">
+                                        <span tabIndex={0} className="text-white chip cursor-pointer border-2 border-slate-800 click" onClick={playgroundEnergy}>Run</span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="effect-sandbox overflow-hidden bg-gray-900 grid place-items-center">
-                                <div className="sandbox-elem bg-white aspect-square" id="elem"/>
+                            <div className="effect-sandbox relative overflow-hidden bg-gray-900 grid place-items-center">
+                                <div className="err absolute top-4 left-5 kode text-red-300" ref={err}/>
+                                {
+                                    errCount <= 10 &&
+                                    <div className="sandbox-elem bg-white aspect-square grid place-items-center" id="elem">
+                                        {
+                                            errCount === 7 &&
+                                            <span className="text-3xl">😭</span>
+                                        }
+                                    </div>
+                                }
+                                {
+                                    errCount > 10 &&
+                                    <span className="text-red-600 text-lg">You have been banned from the playground</span>
+                                }
                             </div>
                         </div>
                     </div>
