@@ -5,6 +5,12 @@
 /*Container: 100*/
 /*zIndex Chart End*/
 
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
 :root {
     --bg-color: #000000;
     --blue-1: #79f1f7;
@@ -308,6 +314,14 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 }
 
 /*==========Playground End==========*/
+
+/*==========About==========*/
+
+.about .about-hero .overlay {
+    background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.7), transparent);
+}
+
+/*==========About End==========*/
 
 /*==========Footer==========*/
 
