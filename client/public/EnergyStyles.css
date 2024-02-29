@@ -315,19 +315,19 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 
 /*==========Playground End==========*/
 
-/*==========About==========*/
+/*==========About & Contact==========*/
 
-.about .about-hero .overlay {
+.about .about-hero .overlay, .contact .contact-hero .overlay {
     background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.7), transparent);
 }
 
 @media screen and (max-width: 600px) {
-    .about .about-hero .overlay {
+    .about .about-hero .overlay, .contact .contact-hero .overlay {
         background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.9), rgba(0,0,0,0.8), transparent);
     }
 }
 
-/*==========About End==========*/
+/*==========About & Contact End==========*/
 
 /*==========Footer==========*/
 

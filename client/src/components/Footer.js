@@ -10,7 +10,7 @@ export const Footer = () => {
                         <li className="text-lg text-gray-400 transition hover:text-white w-max"><Link to={"/"}>Home</Link></li>
                         <li className="text-lg text-gray-400 transition hover:text-white w-max"><Link to={"/about"}>About</Link></li>
                         <li className="text-lg text-gray-400 transition hover:text-white w-max"><Link to={"/docs"}>Docs</Link></li>
-                        <li className="text-lg text-gray-400 transition hover:text-white w-max"><Link to={"/terms"}>Terms</Link></li>
+                        <li className="text-lg text-gray-400 transition hover:text-white w-max"><Link to={"/contact"}>Contact</Link></li>
                     </ul>
                 </div>
                 <div className="links docs col-span-1">
