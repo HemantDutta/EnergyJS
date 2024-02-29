@@ -4,6 +4,7 @@ import {Footer} from "../components/Footer";
 import {Link} from "react-router-dom";
 import {useEffect, useRef, useState} from "react";
 import {Energy} from "../energy";
+import {ScrollTop} from "../components/ScrollTop";
 
 export const Home = () => {
 
@@ -136,6 +137,7 @@ export const Home = () => {
 
     return (
         <>
+            <ScrollTop/>
             {/*  Navbar  */}
             <Navbar page={"home"}/>
             {/*  Navbar End  */}

@@ -1,9 +1,11 @@
 import {Navbar} from "../components/Navbar";
 import {Footer} from "../components/Footer";
+import {ScrollTop} from "../components/ScrollTop";
 
 export const Contact = () => {
     return (
         <>
+            <ScrollTop/>
             {/*  Navbar  */}
             <Navbar page={"contact"}/>
             {/*  Navbar End  */}
