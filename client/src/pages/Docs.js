@@ -10,7 +10,7 @@ import {useLocation} from "react-router-dom";
 export const Docs = () => {
 
     //Get State Location
-    const location = useLocation().state;
+    const location = useLocation().state || "";
 
     //Static Code String
     const vanillaHTMLString = `<!DOCTYPE html>
@@ -252,7 +252,18 @@ function animateBox() {
     //States
     const [activeComp, setActiveComp] = useState("getStarted");
 
+    //Set Location State if any
+    useEffect(()=>{
+        if(first.current) {
+            first.current = false;
+        }
+        else {
+            setActiveComp(location);
+        }
+    },[])
+
     //Refs
+    const first = useRef(true);
     const sidebar = useRef(null);
     const sideOverlay = useRef(null);
 
