@@ -102,6 +102,50 @@ export default YourComponent;
         box.blur(100, 800);
 `;
 
+    const translateMethods = `// Translate Methods
+    
+        //Create Energy Object
+        const box = new Energy("#box");
+        
+        //Translate From both X and Y axis Offsets
+        box.translate2D(-100, 100, 800);
+        
+        //Translate To both X and Y axis Offsets
+        box.translate2DTo(-100, 100, 800);
+        
+        //Translate Horizontally from an X offset
+        box.translateXOffset(100, 800);
+        
+        //Translate Horizontally To an X offset
+        box.translateXTo(100, 800);
+        
+        //Translate Vertically from an Y offset
+        box.translateYOffset(100, 800);
+        
+        //Translate Vertically To an Y offset
+        box.translateYTo(100, 800);
+        
+`;
+
+    const rotateMethods = `// Rotate Methods
+    
+        //Create Energy Object
+        const box = new Energy("#box");
+        
+        //Rotation from a degree value
+        box.rotate(-360, 800);
+        
+        //Rotate to a degree value
+        box.rotateTo(45, 800);
+        
+        //Rotate on a specific axis
+        box.rotateAxis("x", 45, 800);  
+        
+        //Rotate To on a specific axis
+        box.rotateAxisTo("y", -45, 800);  
+        
+`;
+
     const vanillaHTMLClick = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -381,11 +425,44 @@ function animateBox() {
                                                 <li className="text-white">If you chain two methods and give different two different duration values, the value passed later will be applied to both the effects.</li>
                                                 <li className="text-white">Read the documentation for each method carefully. Especially understand how to call the methods and pass arguments to them.</li>
                                                 <li className="text-white">When passing the selector to the <span className="kode blue-2">Energy</span> class constructor, make sure you pass the CSS selector value of the element you want to animate. Example: </li>
-                                                <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
+                                                <SyntaxHighlighter language="js" style={atomOneDarkReasonable}>
                                                     {selectorGuideline}
                                                 </SyntaxHighlighter>
                                                 <li className="text-white">We are currently in beta version, so if you find any issues in the library, please reach out to me <a href="https://www.linkedin.com/in/hemantduttahd/"  rel="noreferrer" target="_blank" className="underline">here</a>.</li>
                                             </ul>
+                                        </DocTab>
+                                    </>
+                                }
+                                {
+                                    activeComp === "translate" &&
+                                    <>
+                                        <DocTab head="Translate" tag="Here's how to use all the translate animation methods">
+                                            <ul className="trans-list list-disc pl-10">
+                                                <li className="text-white">All the "X" and "Y" arguments expect percentage values. e.g. <span className="blue-2 kode">box.translate2D(x:100,y:100,dur:800)</span></li>
+                                                <li className="text-white">"dur" argument expects duration in milliseconds.</li>
+                                            </ul>
+                                            <SubDocTab head="Available Methods" tag="Here are all the translate based methods and their implementation: ">
+                                                <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
+                                                    {translateMethods}
+                                                </SyntaxHighlighter>
+                                            </SubDocTab>
+                                        </DocTab>
+                                    </>
+                                }
+                                {
+                                    activeComp === "rotate" &&
+                                    <>
+                                        <DocTab head="Rotate" tag="Here's how to use all the rotate animation methods">
+                                            <ul className="trans-list list-disc pl-10">
+                                                <li className="text-white">"angle" argument expects a degree value. e.g. <span className="blue-2 kode">box.rotate(angle:360,dur:800)</span></li>
+                                                <li className="text-white">"axis" argument expects an axis value such a "x", "y" or "z".</li>
+                                                <li className="text-white">"dur" argument expects duration in milliseconds.</li>
+                                            </ul>
+                                            <SubDocTab head="Available Methods" tag="Here are all the translate based methods and their implementation: ">
+                                                <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
+                                                    {rotateMethods}
+                                                </SyntaxHighlighter>
+                                            </SubDocTab>
                                         </DocTab>
                                     </>
                                 }
