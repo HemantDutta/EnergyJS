@@ -56,7 +56,6 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
     display: none;
 }
 
@@ -361,8 +360,16 @@ nav.docs {
 
 .docs:not(footer .docs) main .main-container .title-bar {
     display: none;
+    background: #14151a;
 }
 
+.docs:not(footer .docs) .side-overlay.active {
+    opacity: 0.9;
+}
+
+.docs:not(footer .docs) aside.active {
+    transform: translateX(0);
+}
 
 @media screen and (max-width: 1025px) {
     .docs:not(footer .docs) aside {
@@ -375,14 +382,6 @@ nav.docs {
 
     .docs:not(footer .docs) aside .side-close {
         display: initial;
-    }
-
-    .docs:not(footer .docs) .side-overlay.active {
-        opacity: 0.9;
-    }
-
-    .docs:not(footer .docs) aside.active {
-        transform: translateX(0);
     }
 
     .docs:not(footer .docs) main .main-container .title-bar {
