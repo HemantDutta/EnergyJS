@@ -84,6 +84,24 @@ function YourComponent(){
 export default YourComponent;
 `;
 
+    const selectorGuideline = `// How to pass selectors in the constructor
+    
+        //ID based selector
+        const box = new Energy("#box");
+        
+        //Class based selector
+        const box = new Energy(".box");
+        
+        //Tag Based Selector
+        const box = new Energy("div");
+`;
+
+    const chainMethods = `// How to chain multiple animation methods
+        const box = new Energy("#box");
+        box.translate2D(-100, 100, 800);
+        box.blur(100, 800);
+`;
+
     const vanillaHTMLClick = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -342,9 +360,33 @@ function animateBox() {
                                                         </SyntaxHighlighter>
                                                     </SubDocTab>
                                                 </SubDocTab>
+                                                <SubDocTab head={"Chain Animation Methods"} tag={"Yes, you can apply multiple animation methods on a single element."}>
+                                                    <SubDocTab head="Vanilla JS / React JS" tag="Here's how:">
+                                                        <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
+                                                            {chainMethods}
+                                                        </SyntaxHighlighter>
+                                                    </SubDocTab>
+                                                </SubDocTab>
                                             </div>
                                         </DocTab>
                                         {/*Installation End*/}
+                                    </>
+                                }
+                                {
+                                    activeComp === "guidelines" &&
+                                    <>
+                                        <DocTab head="Guidelines" tag="Here are somethings you should keep in mind while using EnergyJS">
+                                            <ul className="guideline-list list-disc flex flex-col gap-5 pl-10">
+                                                <li className="text-white">Don't chain two or more transform based methods together, such as  <span className="kode blue-2">translate2D</span>, <span className="kode blue-2">translateX</span>, etc. To know more about transform based methods, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" rel="noreferrer" target="_blank" className="underline">visit here.</a></li>
+                                                <li className="text-white">If you chain two methods and give different two different duration values, the value passed later will be applied to both the effects.</li>
+                                                <li className="text-white">Read the documentation for each method carefully. Especially understand how to call the methods and pass arguments to them.</li>
+                                                <li className="text-white">When passing the selector to the <span className="kode blue-2">Energy</span> class constructor, make sure you pass the CSS selector value of the element you want to animate. Example: </li>
+                                                <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
+                                                    {selectorGuideline}
+                                                </SyntaxHighlighter>
+                                                <li className="text-white">We are currently in beta version, so if you find any issues in the library, please reach out to me <a href="https://www.linkedin.com/in/hemantduttahd/"  rel="noreferrer" target="_blank" className="underline">here</a>.</li>
+                                            </ul>
+                                        </DocTab>
                                     </>
                                 }
                             </div>
