@@ -171,6 +171,33 @@ export default YourComponent;
         
 `;
 
+    const opacityMethods = `// Opacity Methods
+    
+        //Create Energy Object
+        const box = new Energy("#box");
+        
+        //Opacity from a certain amount to 1
+        box.opacity(0.5, 800);
+        
+        //Opacity from a 1 to a certain amount
+        box.opacityRev(0.5, 800);
+        
+        //Opacity set to certain amount
+        box.opacityTo(0.5, 800);
+`;
+
+    const blurMethods = `// Blur Methods
+    
+        //Create Energy Object
+        const box = new Energy("#box");
+        
+        //Blur from a certain pixel value to 0
+        box.blur(100, 800);
+        
+        //Blur to a certain pixel value from 0
+        box.blurTo(100, 800);
+`;
+
     const vanillaHTMLClick = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -503,6 +530,38 @@ function animateBox() {
                                             <SubDocTab head="Available Methods" tag="Here are all the rotate based methods and their implementation: ">
                                                 <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
                                                     {rotateMethods}
+                                                </SyntaxHighlighter>
+                                            </SubDocTab>
+                                        </DocTab>
+                                    </>
+                                }
+                                {
+                                    activeComp === "opacity" &&
+                                    <>
+                                        <DocTab head="Opacity" tag="Here's how to use all the Opacity animation methods">
+                                            <ul className="trans-list list-disc pl-10">
+                                                <li className="text-white">"amt" argument expects a value between 0 and 1. e.g. <span className="blue-2 kode">box.opacity(amt:0.5,dur:800)</span></li>
+                                                <li className="text-white">"dur" argument expects duration in milliseconds.</li>
+                                            </ul>
+                                            <SubDocTab head="Available Methods" tag="Here are all the Opacity based methods and their implementation: ">
+                                                <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
+                                                    {opacityMethods}
+                                                </SyntaxHighlighter>
+                                            </SubDocTab>
+                                        </DocTab>
+                                    </>
+                                }
+                                {
+                                    activeComp === "blur" &&
+                                    <>
+                                        <DocTab head="Blur" tag="Here's how to use all the Blur animation methods">
+                                            <ul className="trans-list list-disc pl-10">
+                                                <li className="text-white">"amt" argument expects a pixel value. e.g. <span className="blue-2 kode">box.blur(amt:100,dur:800)</span></li>
+                                                <li className="text-white">"dur" argument expects duration in milliseconds.</li>
+                                            </ul>
+                                            <SubDocTab head="Available Methods" tag="Here are all the Blur based methods and their implementation: ">
+                                                <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
+                                                    {blurMethods}
                                                 </SyntaxHighlighter>
                                             </SubDocTab>
                                         </DocTab>
