@@ -341,19 +341,54 @@ nav.docs {
 
 .docs:not(footer .docs) aside {
     width: 350px;
+    transition: transform 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+    background: #14151a;
+}
+
+.docs:not(footer .docs) .side-overlay {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.4s ease;
+}
+
+.docs:not(footer .docs) aside .side-close {
+    display: none;
 }
 
 .docs:not(footer .docs) aside .panel-list li.active {
     border-left: 2px solid white;
 }
 
+.docs:not(footer .docs) main .main-container .title-bar {
+    display: none;
+}
+
+
 @media screen and (max-width: 1025px) {
     .docs:not(footer .docs) aside {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
+        height: 100%;
         transform: translateX(-100%);
     }
+
+    .docs:not(footer .docs) aside .side-close {
+        display: initial;
+    }
+
+    .docs:not(footer .docs) .side-overlay.active {
+        opacity: 0.9;
+    }
+
+    .docs:not(footer .docs) aside.active {
+        transform: translateX(0);
+    }
+
+    .docs:not(footer .docs) main .main-container .title-bar {
+        display: flex;
+    }
+
 }
 /*==========Docs End==========*/
 
