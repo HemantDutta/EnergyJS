@@ -127,6 +127,31 @@ export default YourComponent;
         
 `;
 
+    const scaleMethods = `// Scale Methods
+    
+        //Create Energy Object
+        const box = new Energy("#box");
+        
+        //Scale From both X and Y axis Values
+        box.scale2D(100, 100, 800);
+        
+        //Scale To both X and Y axis Values
+        box.scale2DTo(100, 100, 800);
+        
+        //Scale Horizontally from an X value
+        box.scaleX(100, 800);
+        
+        //Scale Horizontally To an X value
+        box.scaleXTo(100, 800);
+        
+        //Scale Vertically from an Y Value
+        box.scaleY(100, 800);
+        
+        //Scale Vertically To an Y value
+        box.scaleYTo(100, 800);
+        
+`;
+
     const rotateMethods = `// Rotate Methods
     
         //Create Energy Object
@@ -312,6 +337,7 @@ function animateBox() {
                                         sidebarToggle()
                                     }} tabIndex={0} className={`text-white text-lg cursor-pointer transition hover:text-cyan-100 hover:border-slate-400 w-max py-1 pl-2 border-l-2 border-slate-800 ${activeComp === "brightness" ? "active" : ""}`}>Brightness
                                     </li>
+                                    <li className={`text-white text-lg cursor-pointer transition hover:text-cyan-100 hover:border-slate-400 w-max py-1 pl-2 border-l-2 border-slate-800`}>More Coming Soon...</li>
                                 </ul>
                             </div>
                         </div>
@@ -421,14 +447,14 @@ function animateBox() {
                                     <>
                                         <DocTab head="Guidelines" tag="Here are somethings you should keep in mind while using EnergyJS">
                                             <ul className="guideline-list list-disc flex flex-col gap-5 pl-10">
-                                                <li className="text-white">Don't chain two or more transform based methods together, such as  <span className="kode blue-2">translate2D</span>, <span className="kode blue-2">translateX</span>, etc. To know more about transform based methods, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" rel="noreferrer" target="_blank" className="underline">visit here.</a></li>
+                                                <li className="text-white">Don't chain two or more transform based methods together, such as <span className="kode blue-2">translate2D</span>, <span className="kode blue-2">translateX</span>, etc. To know more about transform based methods, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" rel="noreferrer" target="_blank" className="underline">visit here.</a></li>
                                                 <li className="text-white">If you chain two methods and give different two different duration values, the value passed later will be applied to both the effects.</li>
                                                 <li className="text-white">Read the documentation for each method carefully. Especially understand how to call the methods and pass arguments to them.</li>
-                                                <li className="text-white">When passing the selector to the <span className="kode blue-2">Energy</span> class constructor, make sure you pass the CSS selector value of the element you want to animate. Example: </li>
+                                                <li className="text-white">When passing the selector to the <span className="kode blue-2">Energy</span> class constructor, make sure you pass the CSS selector value of the element you want to animate. Example:</li>
                                                 <SyntaxHighlighter language="js" style={atomOneDarkReasonable}>
                                                     {selectorGuideline}
                                                 </SyntaxHighlighter>
-                                                <li className="text-white">We are currently in beta version, so if you find any issues in the library, please reach out to me <a href="https://www.linkedin.com/in/hemantduttahd/"  rel="noreferrer" target="_blank" className="underline">here</a>.</li>
+                                                <li className="text-white">We are currently in beta version, so if you find any issues in the library, please reach out to me <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="underline">here</a>.</li>
                                             </ul>
                                         </DocTab>
                                     </>
@@ -450,6 +476,22 @@ function animateBox() {
                                     </>
                                 }
                                 {
+                                    activeComp === "scale" &&
+                                    <>
+                                        <DocTab head="Scale" tag="Here's how to use all the Scale animation methods">
+                                            <ul className="trans-list list-disc pl-10">
+                                                <li className="text-white">All the "X" and "Y" arguments expect percentage values. e.g. <span className="blue-2 kode">box.scale2D(x:100,y:100,dur:800)</span></li>
+                                                <li className="text-white">"dur" argument expects duration in milliseconds.</li>
+                                            </ul>
+                                            <SubDocTab head="Available Methods" tag="Here are all the Scale based methods and their implementation: ">
+                                                <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
+                                                    {scaleMethods}
+                                                </SyntaxHighlighter>
+                                            </SubDocTab>
+                                        </DocTab>
+                                    </>
+                                }
+                                {
                                     activeComp === "rotate" &&
                                     <>
                                         <DocTab head="Rotate" tag="Here's how to use all the rotate animation methods">
@@ -458,7 +500,7 @@ function animateBox() {
                                                 <li className="text-white">"axis" argument expects an axis value such a "x", "y" or "z".</li>
                                                 <li className="text-white">"dur" argument expects duration in milliseconds.</li>
                                             </ul>
-                                            <SubDocTab head="Available Methods" tag="Here are all the translate based methods and their implementation: ">
+                                            <SubDocTab head="Available Methods" tag="Here are all the rotate based methods and their implementation: ">
                                                 <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
                                                     {rotateMethods}
                                                 </SyntaxHighlighter>
