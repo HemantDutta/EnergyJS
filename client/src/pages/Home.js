@@ -134,11 +134,10 @@ export const Home = () => {
 
     //Download Window Toggle
     function downWindowToggle() {
-        if(downWindow.current.classList.contains("active")) {
+        if (downWindow.current.classList.contains("active")) {
             setDownWindowOpen(false);
             downWindow.current.classList.remove("active")
-        }
-        else {
+        } else {
             setDownWindowOpen(true);
             downWindow.current.classList.add("active")
         }
@@ -168,15 +167,15 @@ export const Home = () => {
                         </header>
                         <span className="low-tag text-center text-gray-500 sm:w-1/2 w-full">Free lightweight JavaScript animation library created by <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="transition hover:text-white">Hemant Dutta</a></span>
                         <div className="cta flex flex-row gap-5 items-center flex-wrap justify-center">
-                            <div className={`kode energy-button-1 ${downWindowOpen?"":"click"} relative`} onClick={downWindowToggle}>
+                            <div className={`kode energy-button-1 ${downWindowOpen ? "" : "click"} relative`} onClick={downWindowToggle}>
                                 <div ref={downWindow} className="download-window flex flex-col gap-5 absolute left-0 w-full bg-black p-5 border border-cyan-300">
                                     <div className="download-item w-full flex flex-col gap-2">
                                         <span className="title text-white">For Vanilla JS</span>
-                                        <span className="chip cursor-pointer">Download energy.min.js</span>
+                                        <span className="chip cursor-pointer" onClick={()=>{document.getElementById("downEnMin").click()}}>Download energy.min.js</span>
                                     </div>
                                     <div className="download-item w-full flex flex-col gap-2">
                                         <span className="title text-white">For Frameworks</span>
-                                        <span className="chip cursor-pointer">Download energy.js</span>
+                                        <span className="chip cursor-pointer" onClick={()=>{document.getElementById("downEn").click()}}>Download energy.js</span>
                                     </div>
                                 </div>
                                 <span>Get energy.min.js</span>
@@ -320,6 +319,10 @@ export const Home = () => {
                     </div>
                 </section>
                 {/*  Playground End  */}
+                {/*  hidden content  */}
+                <a href="/data/energy.js" download className="hidden" id="downEn"/>
+                <a href="/data/energy.min.js" className="hidden" download id="downEnMin"/>
+                {/*  hidden content end  */}
             </div>
             {/*  Home Body End  */}
             {/*  Footer  */}
