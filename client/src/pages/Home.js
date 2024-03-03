@@ -10,10 +10,12 @@ export const Home = () => {
 
     //refs
     const err = useRef(null);
+    const downWindow = useRef(null);
 
     //States
     const [activeEffect, setActiveEffect] = useState("trans2d");
     const [errCount, setErrCount] = useState(0);
+    const [downWindowOpen, setDownWindowOpen] = useState(false);
 
     //XY States
     const [x, setX] = useState("");
@@ -69,7 +71,7 @@ export const Home = () => {
     function playgroundEnergy() {
         const elem = new Energy("#elem");
 
-        if(errCount<=10) {
+        if (errCount <= 10) {
             if (activeEffect === "trans2d") {
                 if (x > 200 || x < -200 || y > 200 || y < -200) {
                     err.current.innerText = "Please enter valid values of X and Y";
@@ -130,6 +132,18 @@ export const Home = () => {
         }
     }
 
+    //Download Window Toggle
+    function downWindowToggle() {
+        if(downWindow.current.classList.contains("active")) {
+            setDownWindowOpen(false);
+            downWindow.current.classList.remove("active")
+        }
+        else {
+            setDownWindowOpen(true);
+            downWindow.current.classList.add("active")
+        }
+    }
+
     //Call PlaygroundEnergy on State Change
     useEffect(() => {
         playgroundEnergy();
@@ -154,7 +168,19 @@ export const Home = () => {
                         </header>
                         <span className="low-tag text-center text-gray-500 sm:w-1/2 w-full">Free lightweight JavaScript animation library created by <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="transition hover:text-white">Hemant Dutta</a></span>
                         <div className="cta flex flex-row gap-5 items-center flex-wrap justify-center">
-                            <span className="kode energy-button-1 click">Get energy.min.js</span>
+                            <div className={`kode energy-button-1 ${downWindowOpen?"":"click"} relative`} onClick={downWindowToggle}>
+                                <div ref={downWindow} className="download-window flex flex-col gap-5 absolute left-0 w-full bg-black p-5 border border-cyan-300">
+                                    <div className="download-item w-full flex flex-col gap-2">
+                                        <span className="title text-white">For Vanilla JS</span>
+                                        <span className="chip cursor-pointer">Download energy.min.js</span>
+                                    </div>
+                                    <div className="download-item w-full flex flex-col gap-2">
+                                        <span className="title text-white">For Frameworks</span>
+                                        <span className="chip cursor-pointer">Download energy.js</span>
+                                    </div>
+                                </div>
+                                <span>Get energy.min.js</span>
+                            </div>
                             <span className="kode energy-button-2 click">Get Started</span>
                         </div>
                         <div className="downloads">

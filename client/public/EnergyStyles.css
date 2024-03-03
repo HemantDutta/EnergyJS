@@ -264,6 +264,16 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
     font-size: 24px;
 }
 
+.hero .hero-content .cta .download-window {
+    bottom: 100%;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.hero .hero-content .cta .download-window.active {
+    opacity: 1;
+}
+
 @media screen and (max-width: 400px) {
     .hero .hero-content span.head {
         font-size: 56px;
