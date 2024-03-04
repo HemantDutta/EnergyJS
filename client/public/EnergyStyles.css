@@ -349,12 +349,12 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
     aspect-ratio: 1/1;
     background: linear-gradient(to right, var(--blue-1), var(--blue-2), black);
     border-radius: 100%;
-    filter: blur(200px);
+    filter: blur(300px);
     animation: blobOpacity 10s ease infinite alternate;
 }
 
 .playground .bg-blob:nth-child(2) {
-    filter: blur(50px);
+    filter: blur(80px);
     animation: blobOpacity 10s ease infinite;
 }
 
