@@ -11,7 +11,7 @@ export const About = () => {
             {/*  Navbar End  */}
             {/*  Body  */}
             <div className="about" id="about">
-                <section className="about-hero h-screen relative flex items-end" id="hero">
+                <section className="about-hero min-h-screen relative flex items-end" id="hero">
                     <img src="/assets/hero/ejs_hero_2.jpg" alt="About EnergyJS" className="bg-img absolute z-10 h-full w-full object-cover"/>
                     <div className="overlay absolute top-0 left-0 h-full w-full z-40"/>
                     <div className="about-hero-content relative z-50 py-20 grid grid-cols-4 items-end gap-10 sm:px-10 px-5">

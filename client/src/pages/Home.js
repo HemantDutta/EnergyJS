@@ -139,18 +139,20 @@ export const Home = () => {
 
     //Download Window Toggle
     function downWindowToggle() {
-        if (downWindow.current.classList.contains("active")) {
-            setDownWindowOpen(false);
-            downWindow.current.classList.remove("active");
-            setTimeout(()=>{
-                downWindow.current.style.display = "none";
-            },600)
-        } else {
-            setDownWindowOpen(true);
-            downWindow.current.style.display = "initial";
-            setTimeout(()=>{
-                downWindow.current.classList.add("active");
-            },0)
+        if(downWindow.current) {
+            if (downWindow.current.classList.contains("active")) {
+                setDownWindowOpen(false);
+                downWindow.current.classList.remove("active");
+                setTimeout(()=>{
+                    downWindow.current.style.display = "none";
+                },600)
+            } else {
+                setDownWindowOpen(true);
+                downWindow.current.style.display = "initial";
+                setTimeout(()=>{
+                    downWindow.current.classList.add("active");
+                },0)
+            }
         }
     }
 
@@ -177,9 +179,6 @@ export const Home = () => {
             if(downWindow.current && !downWindow.current.contains(e.target) && !downWindowBtn.current.contains(e.target)) {
                 setDownWindowOpen(false);
                 downWindow.current.classList.remove("active");
-                setTimeout(()=>{
-                    downWindow.current.style.display = "none";
-                },600)
             }
         }
 
