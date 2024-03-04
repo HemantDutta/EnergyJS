@@ -326,6 +326,28 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
     height: 150px;
 }
 
+.playground .content .left .head {
+    background: linear-gradient(to right, var(--blue-1), var(--blue-2), black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.playground .bg-blob {
+    bottom: -25%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40vw;
+    aspect-ratio: 1/1;
+    background: linear-gradient(to right, var(--blue-1), var(--blue-2), black);
+    border-radius: 100%;
+    filter: blur(500px);
+}
+
+.playground .bg-blob:nth-child(2) {
+    filter: blur(100px);
+}
+
+
 @media screen and (max-width: 350px) {
     .playground header .head {
         font-size: 32px;

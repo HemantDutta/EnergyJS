@@ -254,11 +254,13 @@ export const Home = () => {
                 </section>
                 {/*  Features End  */}
                 {/*  Playground  */}
-                <section className="playground sm:px-10 px-5 py-20 relative" id="playground">
-                    <header>
+                <section className="playground sm:px-10 px-5 py-20 relative overflow-hidden" id="playground">
+                    <div className="bg-blob absolute"/>
+                    <div className="bg-blob absolute"/>
+                    <header className="relative z-50">
                         <span className="head text-5xl sm:text-7xl text-white anta text-gradient">{"<Playground/>"}</span>
                     </header>
-                    <div className="content flex lg:flex-row flex-col items-center lg:gap-10 gap-20 py-20 relative">
+                    <div className="content flex lg:flex-row flex-col items-center lg:gap-10 gap-20 py-20 relative z-50">
                         <div className="left intro flex flex-col gap-5 basis-1/2">
                             <span className="head text-5xl text-white anta">Want a test drive?</span>
                             <span className="des text-gray-500">Give EnergyJS a shot, right here in our playground! Try out a few of our many animations methods. For complete details, visit our <Link to={"/docs"} className="underline transition hover:text-white kode">docs</Link></span>
