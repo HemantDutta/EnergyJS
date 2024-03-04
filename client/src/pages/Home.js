@@ -265,7 +265,7 @@ export const Home = () => {
                             <span className="head text-5xl text-white anta">Want a test drive?</span>
                             <span className="des text-gray-500">Give EnergyJS a shot, right here in our playground! Try out a few of our many animations methods. For complete details, visit our <Link to={"/docs"} className="underline transition hover:text-white kode">docs</Link></span>
                         </div>
-                        <div className="right flex flex-col basis-1/2 lg:w-max w-full">
+                        <div className="right p-5 flex flex-col basis-1/2 lg:w-max w-full">
                             <div className="effect-container flex flex-col">
                                 <span className="head text-white py-5 kode text-3xl">Choose an effect</span>
                                 <div className="effect-bar flex flex-row flex-wrap">

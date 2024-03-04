@@ -322,6 +322,15 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
     width: 100%;
 }
 
+.playground .content .right {
+    background: rgba( 255, 255, 255, 0 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
 .playground .content .right .effect-sandbox .sandbox-elem {
     height: 150px;
 }
@@ -341,10 +350,34 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
     background: linear-gradient(to right, var(--blue-1), var(--blue-2), black);
     border-radius: 100%;
     filter: blur(500px);
+    animation: blobOpacity 10s ease infinite alternate;
 }
 
 .playground .bg-blob:nth-child(2) {
     filter: blur(100px);
+    animation: blobOpacity 10s ease infinite;
+}
+
+@keyframes blobOpacity {
+    0% {
+        opacity: 0.5;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    75% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
 }
 
 
