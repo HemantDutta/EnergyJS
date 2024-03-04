@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {useEffect, useRef, useState} from "react";
 import {Energy} from "../energy";
 import {ScrollTop} from "../components/ScrollTop";
+import supabase from "../config/supabaseClient";
 
 export const Home = () => {
 
@@ -16,6 +17,7 @@ export const Home = () => {
     const [activeEffect, setActiveEffect] = useState("trans2d");
     const [errCount, setErrCount] = useState(0);
     const [downWindowOpen, setDownWindowOpen] = useState(false);
+    const [downloadCount, setDownloadCount] = useState("10");
 
     //XY States
     const [x, setX] = useState("");
@@ -136,12 +138,26 @@ export const Home = () => {
     function downWindowToggle() {
         if (downWindow.current.classList.contains("active")) {
             setDownWindowOpen(false);
-            downWindow.current.classList.remove("active")
+            downWindow.current.classList.remove("active");
         } else {
             setDownWindowOpen(true);
-            downWindow.current.classList.add("active")
+            downWindow.current.classList.add("active");
         }
     }
+
+    //Get Downloads Count
+    async function getDownloads() {
+        const {count} = supabase
+            .from('en_downloads')
+            .select('*', {count: 'exact', head: true});
+        let temp = count > 10 ? count : "10";
+        setDownloadCount(temp);
+    }
+
+    //Call Downloads Count Fetch
+    useEffect(() => {
+        getDownloads().then();
+    }, [])
 
     //Call PlaygroundEnergy on State Change
     useEffect(() => {
@@ -171,11 +187,15 @@ export const Home = () => {
                                 <div ref={downWindow} className="download-window flex flex-col gap-5 absolute left-0 w-full bg-black p-5 border border-cyan-300">
                                     <div className="download-item w-full flex flex-col gap-2">
                                         <span className="title text-white">For Vanilla JS</span>
-                                        <span className="chip cursor-pointer" onClick={()=>{document.getElementById("downEnMin").click()}}>Download energy.min.js</span>
+                                        <span className="chip cursor-pointer" onClick={() => {
+                                            document.getElementById("downEnMin").click()
+                                        }}>Download energy.min.js</span>
                                     </div>
                                     <div className="download-item w-full flex flex-col gap-2">
                                         <span className="title text-white">For Frameworks</span>
-                                        <span className="chip cursor-pointer" onClick={()=>{document.getElementById("downEn").click()}}>Download energy.js</span>
+                                        <span className="chip cursor-pointer" onClick={() => {
+                                            document.getElementById("downEn").click()
+                                        }}>Download energy.js</span>
                                     </div>
                                 </div>
                                 <span>Get energy.min.js</span>
@@ -183,7 +203,7 @@ export const Home = () => {
                             <span className="kode energy-button-2 click">Get Started</span>
                         </div>
                         <div className="downloads">
-                            <span className="kode text-gray-500">Total Downloads: 10</span>
+                            <span className="kode text-gray-500">Total Downloads: {downloadCount}</span>
                         </div>
                     </div>
                 </section>
