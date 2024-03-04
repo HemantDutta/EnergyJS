@@ -149,7 +149,7 @@ export const Home = () => {
 
     //Get Downloads Count
     async function getDownloads() {
-        const {count} = supabase
+        const {count} = await supabase
             .from('en_downloads')
             .select('*', {count: 'exact', head: true});
         let temp = count > 10 ? count : "10";
@@ -162,6 +162,20 @@ export const Home = () => {
             .from('en_downloads')
             .insert({name: name});
     }
+
+    //Click Out downWindow Close
+    useEffect(() => {
+        const closeDownWindow = (e) => {
+            if(downWindow.current && !downWindow.current.contains(e.target)) {
+                setDownWindowOpen(false);
+                downWindow.current.classList.remove("active");
+            }
+        }
+
+        document.addEventListener("mousedown", closeDownWindow);
+
+        return () => document.removeEventListener("mousedown", closeDownWindow);
+    }, [])
 
     //Call Downloads Count Fetch
     useEffect(() => {
