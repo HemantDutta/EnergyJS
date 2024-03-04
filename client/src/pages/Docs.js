@@ -20,7 +20,6 @@ export const Docs = () => {
     useEffect(() => {
         if (first.current) {
             first.current = false;
-        } else {
             setActiveComp(location);
         }
     }, [])

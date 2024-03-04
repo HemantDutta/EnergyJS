@@ -1,13 +1,16 @@
 import {Navbar} from "../components/Navbar";
 import {FeatureCard} from "../components/FeatureCard";
 import {Footer} from "../components/Footer";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useEffect, useRef, useState} from "react";
 import {Energy} from "../energy";
 import {ScrollTop} from "../components/ScrollTop";
 import supabase from "../config/supabaseClient";
 
 export const Home = () => {
+
+    //Navigator
+    const nav = useNavigate();
 
     //refs
     const err = useRef(null);
@@ -73,37 +76,6 @@ export const Home = () => {
     function playgroundEnergy() {
         const elem = new Energy("#elem");
 
-        if (errCount <= 10) {
-            if (activeEffect === "trans2d") {
-                if (x > 200 || x < -200 || y > 200 || y < -200) {
-                    err.current.innerText = "Please enter valid values of X and Y";
-                } else {
-                    err.current.innerText = "";
-                    elem.translate2D(x || Math.floor((Math.random() * 100) + 1), y || Math.floor((Math.random() * 100) + 1), dur || 800);
-                }
-            } else if (activeEffect === "opacity") {
-                if (opacity > 1 || opacity < 0) {
-                    err.current.innerText = "Please enter opacity values between 0 and 1"
-                } else {
-                    err.current.innerText = "";
-                    elem.opacity(opacity || 0, 800);
-                }
-            } else if (activeEffect === "scale2d") {
-                if (x > 200 || x < -200 || y > 200 || y < -200) {
-                    err.current.innerText = "Please enter valid values of X and Y";
-                } else {
-                    err.current.innerText = "";
-                    elem.scale2D(x || 0, y || 0, dur || 800);
-                }
-            } else if (activeEffect === "rotate") {
-                err.current.innerText = "";
-                elem.rotate(degree || 360, dur || 800);
-            } else if (activeEffect === "blur") {
-                err.current.innerText = "";
-                elem.blur(blur || 100, dur || 800);
-            }
-        }
-
         if (dur > 10000) {
             if (errCount === 0) {
                 err.current.innerText = "Don't enter ridiculous durations 🙏";
@@ -131,6 +103,36 @@ export const Home = () => {
             setErrCount(prevState => prevState + 1)
         } else {
             err.current.innerText = "";
+            if (errCount <= 10) {
+                if (activeEffect === "trans2d") {
+                    if (x > 200 || x < -200 || y > 200 || y < -200) {
+                        err.current.innerText = "Please enter valid values of X and Y";
+                    } else {
+                        err.current.innerText = "";
+                        elem.translate2D(x || Math.floor((Math.random() * 100) + 1), y || Math.floor((Math.random() * 100) + 1), dur || 800);
+                    }
+                } else if (activeEffect === "opacity") {
+                    if (opacity > 1 || opacity < 0) {
+                        err.current.innerText = "Please enter opacity values between 0 and 1"
+                    } else {
+                        err.current.innerText = "";
+                        elem.opacity(opacity || 0, 800);
+                    }
+                } else if (activeEffect === "scale2d") {
+                    if (x > 200 || x < -200 || y > 200 || y < -200) {
+                        err.current.innerText = "Please enter valid values of X and Y";
+                    } else {
+                        err.current.innerText = "";
+                        elem.scale2D(x || 0, y || 0, dur || 800);
+                    }
+                } else if (activeEffect === "rotate") {
+                    err.current.innerText = "";
+                    elem.rotate(degree || 360, dur || 800);
+                } else if (activeEffect === "blur") {
+                    err.current.innerText = "";
+                    elem.blur(blur || 100, dur || 800);
+                }
+            }
         }
     }
 
@@ -152,6 +154,13 @@ export const Home = () => {
             .select('*', {count: 'exact', head: true});
         let temp = count > 10 ? count : "10";
         setDownloadCount(temp);
+    }
+
+    //Update Download Count
+    async function updateDownloadCount(name) {
+        const {error} = await supabase
+            .from('en_downloads')
+            .insert({name: name});
     }
 
     //Call Downloads Count Fetch
@@ -200,7 +209,9 @@ export const Home = () => {
                                 </div>
                                 <span>Get energy.min.js</span>
                             </div>
-                            <span className="kode energy-button-2 click">Get Started</span>
+                            <span className="kode energy-button-2 click" onClick={() => {
+                                nav("/docs")
+                            }}>Get Started</span>
                         </div>
                         <div className="downloads">
                             <span className="kode text-gray-500">Total Downloads: {downloadCount}</span>
@@ -229,11 +240,11 @@ export const Home = () => {
                 </section>
                 {/*  Features End  */}
                 {/*  Playground  */}
-                <section className="playground sm:px-10 px-5 py-20" id="playground">
+                <section className="playground sm:px-10 px-5 py-20 relative" id="playground">
                     <header>
                         <span className="head text-5xl sm:text-7xl text-white anta text-gradient">{"<Playground/>"}</span>
                     </header>
-                    <div className="content flex lg:flex-row flex-col items-center lg:gap-10 gap-20 py-20">
+                    <div className="content flex lg:flex-row flex-col items-center lg:gap-10 gap-20 py-20 relative">
                         <div className="left intro flex flex-col gap-5 basis-1/2">
                             <span className="head text-5xl text-white anta">Want a test drive?</span>
                             <span className="des text-gray-500">Give EnergyJS a shot, right here in our playground! Try out a few of our many animations methods. For complete details, visit our <Link to={"/docs"} className="underline transition hover:text-white kode">docs</Link></span>
@@ -340,8 +351,12 @@ export const Home = () => {
                 </section>
                 {/*  Playground End  */}
                 {/*  hidden content  */}
-                <a href="/data/energy.js" download className="hidden" id="downEn"/>
-                <a href="/data/energy.min.js" className="hidden" download id="downEnMin"/>
+                <a href="/data/energy.js" download className="hidden" onClick={() => {
+                    updateDownloadCount("energy.js")
+                }} id="downEn"/>
+                <a href="/data/energy.min.js" className="hidden" onClick={() => {
+                    updateDownloadCount("energy.min.js")
+                }} download id="downEnMin"/>
                 {/*  hidden content end  */}
             </div>
             {/*  Home Body End  */}
