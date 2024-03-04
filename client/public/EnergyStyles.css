@@ -342,29 +342,29 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 }
 
 .playground .bg-blob {
-    bottom: -25%;
+    bottom: -30%;
     left: 50%;
     transform: translateX(-50%);
-    height: 40vw;
+    height: 750px;
     aspect-ratio: 1/1;
     background: linear-gradient(to right, var(--blue-1), var(--blue-2), black);
     border-radius: 100%;
-    filter: blur(500px);
+    filter: blur(200px);
     animation: blobOpacity 10s ease infinite alternate;
 }
 
 .playground .bg-blob:nth-child(2) {
-    filter: blur(100px);
+    filter: blur(50px);
     animation: blobOpacity 10s ease infinite;
 }
 
 @keyframes blobOpacity {
     0% {
-        opacity: 0.5;
+        opacity: 1;
     }
 
     25% {
-        opacity: 1;
+        opacity: 0.6;
     }
 
     50% {
@@ -372,14 +372,19 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
     }
 
     75% {
-        opacity: 0.4;
+        opacity: 0.7;
     }
 
     100% {
-        opacity: 0.5;
+        opacity: 1;
     }
 }
 
+@media screen and (max-width: 1028px) {
+    .playground .bg-blob {
+        bottom: -25%;
+    }
+}
 
 @media screen and (max-width: 350px) {
     .playground header .head {
