@@ -15,6 +15,7 @@ export const Home = () => {
     //refs
     const err = useRef(null);
     const downWindow = useRef(null);
+    const downWindowBtn = useRef(null);
 
     //States
     const [activeEffect, setActiveEffect] = useState("trans2d");
@@ -141,9 +142,15 @@ export const Home = () => {
         if (downWindow.current.classList.contains("active")) {
             setDownWindowOpen(false);
             downWindow.current.classList.remove("active");
+            setTimeout(()=>{
+                downWindow.current.style.display = "none";
+            },600)
         } else {
             setDownWindowOpen(true);
-            downWindow.current.classList.add("active");
+            downWindow.current.style.display = "initial";
+            setTimeout(()=>{
+                downWindow.current.classList.add("active");
+            },0)
         }
     }
 
@@ -161,14 +168,18 @@ export const Home = () => {
         const {error} = await supabase
             .from('en_downloads')
             .insert({name: name});
+        getDownloads().then();
     }
 
     //Click Out downWindow Close
     useEffect(() => {
         const closeDownWindow = (e) => {
-            if(downWindow.current && !downWindow.current.contains(e.target)) {
+            if(downWindow.current && !downWindow.current.contains(e.target) && !downWindowBtn.current.contains(e.target)) {
                 setDownWindowOpen(false);
                 downWindow.current.classList.remove("active");
+                setTimeout(()=>{
+                    downWindow.current.style.display = "none";
+                },600)
             }
         }
 
@@ -206,7 +217,7 @@ export const Home = () => {
                         </header>
                         <span className="low-tag text-center text-gray-500 sm:w-1/2 w-full">Free lightweight JavaScript animation library created by <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="transition hover:text-white">Hemant Dutta</a></span>
                         <div className="cta flex flex-row gap-5 items-center flex-wrap justify-center">
-                            <div className={`kode energy-button-1 ${downWindowOpen ? "" : "click"} relative`} onClick={downWindowToggle}>
+                            <div ref={downWindowBtn} className={`kode energy-button-1 ${downWindowOpen ? "" : "click"} relative`} onClick={downWindowToggle}>
                                 <div ref={downWindow} className="download-window flex flex-col gap-5 absolute left-0 w-full bg-black p-5 border border-cyan-300">
                                     <div className="download-item w-full flex flex-col gap-2">
                                         <span className="title text-white">For Vanilla JS</span>

@@ -268,6 +268,7 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
     bottom: 100%;
     opacity: 0;
     transition: opacity 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+    display: none;
 }
 
 .hero .hero-content .cta .download-window.active {
