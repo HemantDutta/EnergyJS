@@ -12,7 +12,7 @@ export const Contact = () => {
             {/*  Body  */}
             <div className="contact" id="contact">
                 <section className="contact-hero min-h-screen flex items-end relative py-20">
-                    <img src="/assets/hero/ejs_hero_2.jpg" alt="About EnergyJS" className="bg-img absolute z-10 h-full w-full object-cover"/>
+                    <img src="/assets/contact/en_con_1.jpg" alt="Contact Me" className="bg-img absolute z-10 h-full w-full object-cover"/>
                     <div className="overlay absolute top-0 left-0 h-full w-full z-40"/>
                     <div className="contact-content flex gap-10 flex-col relative z-50 sm:px-10 px-5">
                         <header className="flex flex-col">
