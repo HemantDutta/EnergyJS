@@ -170,6 +170,25 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 
 /*==========Navbar End==========*/
 
+/*==========Preloader==========*/
+
+.pre-loader {
+    z-index: 10000;
+    background-size: 20% 20%;
+    background-image: linear-gradient(#101010 1.5px, transparent 1.5px, transparent calc(100% - 1.5px), #101010 calc(100% - 1.5px)), linear-gradient(90deg, #101010 1.5px, transparent 1.5px, transparent calc(100% - 1.5px), #101010 calc(100% - 1.5px));
+    animation: moveBg 40s infinite cubic-bezier(0.87, 0, 0.13, 1) alternate-reverse;
+}
+
+.pre-loader .logo-text span {
+    display: inline-block;
+}
+
+.pre-loader .loader span {
+    animation: blobOpacity 2s ease infinite;
+}
+
+/*==========Preloader End==========*/
+
 /*==========Hero==========*/
 
 .hero {
@@ -259,6 +278,10 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0, rgba(0, 0, 0, 0.8) 55%, rgba(0, 0, 0, 0.6));
 }
 
+.hero .preLoadOverlay {
+    z-index: 10000;
+}
+
 .hero .hero-content span.high-tag {
     color: white;
     font-size: 24px;
@@ -324,12 +347,12 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
 }
 
 .playground .content .right {
-    background: rgba( 255, 255, 255, 0 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .playground .content .right .effect-sandbox .sandbox-elem {

@@ -6,8 +6,14 @@ import {useEffect, useRef, useState} from "react";
 import {Energy} from "../energy";
 import {ScrollTop} from "../components/ScrollTop";
 import supabase from "../config/supabaseClient";
+import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {PreLoader} from "../components/PreLoader";
 
 export const Home = () => {
+
+    //Register ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
 
     //Navigator
     const nav = useNavigate();
@@ -16,6 +22,7 @@ export const Home = () => {
     const err = useRef(null);
     const downWindow = useRef(null);
     const downWindowBtn = useRef(null);
+    const enLogo = useRef(null);
 
     //States
     const [activeEffect, setActiveEffect] = useState("trans2d");
@@ -197,6 +204,38 @@ export const Home = () => {
         playgroundEnergy();
     }, [activeEffect])
 
+    //Preloading Animation
+    useEffect(()=>{
+            const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            let interval = null;
+
+            enLogo.current.onmouseover = event => {
+                let iteration = 0;
+
+                clearInterval(interval);
+
+                interval = setInterval(() => {
+                    event.target.innerText = event.target.innerText
+                        .split("")
+                        .map((letter, index) => {
+                            if(index < iteration) {
+                                return event.target.dataset.value[index];
+                            }
+
+                            return letters[Math.floor(Math.random() * 26)]
+                        })
+                        .join("");
+
+                    if(iteration >= event.target.dataset.value.length){
+                        clearInterval(interval);
+                    }
+
+                    iteration += 1 / 3;
+                }, 30);
+            }
+    },[])
+
     return (
         <>
             <ScrollTop/>
@@ -205,6 +244,7 @@ export const Home = () => {
             {/*  Navbar End  */}
             {/*  Home Body  */}
             <div className="home" id="home">
+                <PreLoader/>
                 {/*Hero*/}
                 <section className="hero h-screen w-full relative py-20 px-5 sm:px-10" id="hero">
                     <div className="hero-overlay absolute h-screen w-screen top-0 left-0 z-10"/>
@@ -212,7 +252,7 @@ export const Home = () => {
                         <a href="https://github.com/HemantDutta/EnergyJS" className="high-tag chip sm:text-xl text-sm kode" rel="noreferrer" target="_blank">Github <i className="fa-brands fa-github"/></a>
                         <header className="relative">
                             <span className="version blue-1 font-bold kode absolute -right-5 -top-5">v0.1(beta)</span>
-                            <span className="head sm:text-9xl text-7xl text-white anta text-gradient">EnergyJS</span>
+                            <span className="head sm:text-9xl text-7xl text-white anta text-gradient" data-value="EnergyJS" ref={enLogo}>EnergyJS</span>
                         </header>
                         <span className="low-tag text-center text-gray-500 sm:w-1/2 w-full">Free lightweight JavaScript animation library created by <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="transition hover:text-white">Hemant Dutta</a></span>
                         <div className="cta flex flex-row gap-5 items-center flex-wrap justify-center">
