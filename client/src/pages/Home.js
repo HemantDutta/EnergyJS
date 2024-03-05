@@ -286,12 +286,12 @@ export const Home = () => {
             .from(".playground .content .left", {
                 yPercent: 100,
                 opacity: 0,
-                duration: 0.4,
+                duration: 0.6,
             })
             .from(".playground .content .right", {
-                yPercent: 100,
+                yPercent: 20,
                 opacity: 0,
-                duration: 0.4
+                duration: 0.6
             })
 
     }, [])
