@@ -42,14 +42,21 @@ export const Navbar = ({page}) => {
                 </div>
             </nav>
             <div ref={bigMenu} className="big-menu fixed top-0 left-0 h-screen w-screen bg-black" id="bigMenu">
-                <div className="big-menu-container h-full w-full relative grid place-items-center">
-                    <span onClick={bigMenuToggle} className="close absolute right-10 top-10 text-white text-4xl cursor-pointer underline">Close</span>
-                    <ul className="flex flex-col gap-5 items-center">
-                        <li><Link onClick={bigMenuToggle} to={"/"} className="text-white text-3xl sm:text-6xl font-bold transition hover:text-cyan-300">Home</Link></li>
-                        <li><Link onClick={bigMenuToggle} to={"/about"} className="text-white text-3xl sm:text-6xl font-bold transition hover:text-cyan-300">About</Link></li>
-                        <li><Link onClick={bigMenuToggle} to={"/docs"} className="text-white text-3xl sm:text-6xl font-bold transition hover:text-cyan-300">Docs</Link></li>
-                        <li><Link onClick={bigMenuToggle} to={"/contact"} className="text-white text-3xl sm:text-6xl font-bold transition hover:text-cyan-300">Contact</Link></li>
-                    </ul>
+                <div className="big-menu-container h-full w-full relative flex items-center">
+                    <div className="left h-5/6 basis-1/2 md:block hidden">
+                        <div className="image w-full h-full overflow-hidden">
+                            <img src="/assets/navbar/en_big_menu.jpg" className="object-cover object-left h-full w-full" alt="Big Menu Art"/>
+                        </div>
+                    </div>
+                    <div className="right md:h-5/6 h-full basis-full md:basis-1/2 grid place-items-center">
+                        <span onClick={bigMenuToggle} className="close absolute right-10 top-10 text-white text-4xl cursor-pointer underline">Close</span>
+                        <ul className="flex flex-col gap-5 items-center kode">
+                            <li><Link onClick={bigMenuToggle} to={"/"} className="text-white text-3xl sm:text-6xl font-bold transition hover:text-cyan-300">Home</Link></li>
+                            <li><Link onClick={bigMenuToggle} to={"/about"} className="text-white text-3xl sm:text-6xl font-bold transition hover:text-cyan-300">About</Link></li>
+                            <li><Link onClick={bigMenuToggle} to={"/docs"} className="text-white text-3xl sm:text-6xl font-bold transition hover:text-cyan-300">Docs</Link></li>
+                            <li><Link onClick={bigMenuToggle} to={"/contact"} className="text-white text-3xl sm:text-6xl font-bold transition hover:text-cyan-300">Contact</Link></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </>

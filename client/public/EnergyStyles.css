@@ -147,6 +147,11 @@ nav {
     transform: translateY(0);
 }
 
+.big-menu .right {
+    background-size: 20% 20%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px, transparent calc(100% - 1.5px), rgba(255, 255, 255, 0.2) calc(100% - 1.5px)), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px, transparent calc(100% - 1.5px), rgba(255, 255, 255, 0.2) calc(100% - 1.5px));
+}
+
 nav .left ul li a {
     position: relative;
 }
