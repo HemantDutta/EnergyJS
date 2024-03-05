@@ -262,7 +262,7 @@ export const Home = () => {
                 trigger: ".features",
                 start: "-=50%",
                 end: "+=250%",
-                scrub: 0.2,
+                scrub: 2,
             },
             scale: 1,
             clipPath: "inset(0%)"
