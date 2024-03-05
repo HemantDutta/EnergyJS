@@ -146,19 +146,19 @@ export const Home = () => {
 
     //Download Window Toggle
     function downWindowToggle() {
-        if(downWindow.current) {
+        if (downWindow.current) {
             if (downWindow.current.classList.contains("active")) {
                 setDownWindowOpen(false);
                 downWindow.current.classList.remove("active");
-                setTimeout(()=>{
+                setTimeout(() => {
                     downWindow.current.style.display = "none";
-                },600)
+                }, 600)
             } else {
                 setDownWindowOpen(true);
                 downWindow.current.style.display = "initial";
-                setTimeout(()=>{
+                setTimeout(() => {
                     downWindow.current.classList.add("active");
-                },0)
+                }, 0)
             }
         }
     }
@@ -183,7 +183,7 @@ export const Home = () => {
     //Click Out downWindow Close
     useEffect(() => {
         const closeDownWindow = (e) => {
-            if(downWindow.current && !downWindow.current.contains(e.target) && !downWindowBtn.current.contains(e.target)) {
+            if (downWindow.current && !downWindow.current.contains(e.target) && !downWindowBtn.current.contains(e.target)) {
                 setDownWindowOpen(false);
                 downWindow.current.classList.remove("active");
             }
@@ -205,37 +205,96 @@ export const Home = () => {
     }, [activeEffect])
 
     //Preloading Animation
-    useEffect(()=>{
-            const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    useEffect(() => {
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-            let interval = null;
+        let interval = null;
 
-            enLogo.current.onmouseover = event => {
-                let iteration = 0;
+        enLogo.current.onmouseover = event => {
+            let iteration = 0;
 
-                clearInterval(interval);
+            clearInterval(interval);
 
-                interval = setInterval(() => {
-                    event.target.innerText = event.target.innerText
-                        .split("")
-                        .map((letter, index) => {
-                            if(index < iteration) {
-                                return event.target.dataset.value[index];
-                            }
+            interval = setInterval(() => {
+                event.target.innerText = event.target.innerText
+                    .split("")
+                    .map((letter, index) => {
+                        if (index < iteration) {
+                            return event.target.dataset.value[index];
+                        }
 
-                            return letters[Math.floor(Math.random() * 26)]
-                        })
-                        .join("");
+                        return letters[Math.floor(Math.random() * 26)]
+                    })
+                    .join("");
 
-                    if(iteration >= event.target.dataset.value.length){
-                        clearInterval(interval);
-                    }
+                if (iteration >= event.target.dataset.value.length) {
+                    clearInterval(interval);
+                }
 
-                    iteration += 1 / 3;
-                }, 30);
+                iteration += 1 / 3;
+            }, 30);
+        }
+    }, [])
+
+    //Features Animation
+    useEffect(() => {
+
+        //Header and Card animation
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".features"
             }
-    },[])
+        });
+        tl
+            .from(".features header", {
+                xPercent: -100,
+                duration: 0.6,
+            })
+            .from(".feature-card", {
+                opacity: 0,
+                ease: "bounce.in",
+                stagger: 0.1
+            })
 
+        //Feature Image Animation
+        gsap.to(".features .feature-grid .grid-image img", {
+            scrollTrigger: {
+                trigger: ".features",
+                start: "-=50%",
+                end: "+=250%",
+                scrub: 0.2,
+            },
+            scale: 1,
+            clipPath: "inset(0%)"
+        })
+    }, [])
+
+    //Playground Animation
+    useEffect(() => {
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".playground"
+            }
+        });
+
+        tl
+            .from(".playground header", {
+                xPercent: -100,
+                duration: 0.6,
+            })
+            .from(".playground .content .left", {
+                yPercent: 100,
+                opacity: 0,
+                duration: 0.4,
+            })
+            .from(".playground .content .right", {
+                yPercent: 100,
+                opacity: 0,
+                duration: 0.4
+            })
+
+    }, [])
     return (
         <>
             <ScrollTop/>
@@ -296,7 +355,7 @@ export const Home = () => {
                                 )
                             })
                         }
-                        <div className="grid-image col-span-2 row-span-4 relative w-full h-full">
+                        <div className="grid-image col-span-2 overflow-hidden row-span-4 relative w-full h-full">
                             <div className="grid-image-overlay z-50"/>
                             <img src="assets/hero/ejs_hero_1.jpg" alt="Energy JS Artwork" className="object-cover w-full h-full relative z-10"/>
                         </div>

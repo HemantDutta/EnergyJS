@@ -317,6 +317,11 @@ nav .left ul li a:hover:after, nav .left ul li a.active:after {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
 }
 
+.features .feature-grid .grid-image img {
+    scale: 1.5;
+    clip-path: inset(25%);
+}
+
 @media screen and (max-width: 1291px) {
     .features .feature-grid > * {
         grid-column: 1/-1;
