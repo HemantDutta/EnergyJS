@@ -1,6 +1,6 @@
 <!-- Your Logo Goes Here -->
 <center>
-![EnergyJS]([https://github.com/HemantDutta/EnergyJS/blob/bb8763a3b5cbe34b8a42e38007daf3d0a371f0aa/client/public/github/en_logo.png](https://raw.githubusercontent.com/HemantDutta/EnergyJS/bb8763a3b5cbe34b8a42e38007daf3d0a371f0aa/client/public/github/en_logo.png?token=GHSAT0AAAAAACEA2MMB45VC6PCOGNMHN3WWZPGZRGA))
+![EnergyJS](https://raw.githubusercontent.com/HemantDutta/EnergyJS/bb8763a3b5cbe34b8a42e38007daf3d0a371f0aa/client/public/github/en_logo.png?token=GHSAT0AAAAAACEA2MMB45VC6PCOGNMHN3WWZPGZRGA)
 </center>
 
 # EnergyJS
