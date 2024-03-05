@@ -1,7 +1,7 @@
 <!-- Your Logo Goes Here -->
-<center>
-![EnergyJS](https://github.com/HemantDutta/EnergyJS/blob/main/client/public/github/en_logo.png)
-</center>
+<div align="center">
+    <img src="https://github.com/HemantDutta/EnergyJS/blob/bb8763a3b5cbe34b8a42e38007daf3d0a371f0aa/client/public/github/en_logo.png" alt="EnergyJS Logo" width="20%">
+</div>
 
 # EnergyJS
 
