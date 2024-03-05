@@ -1,10 +1,13 @@
 <!-- Your Logo Goes Here -->
 <div align="center">
-    <img src="https://github.com/HemantDutta/EnergyJS/blob/bb8763a3b5cbe34b8a42e38007daf3d0a371f0aa/client/public/github/en_logo.png" alt="EnergyJS Logo" width="50%">
+    <img src="https://github.com/HemantDutta/EnergyJS/blob/main/github/en_logo.png" alt="EnergyJS Logo" width="50%">
 </div>
 
 # EnergyJS ⚡
 
+<div>
+        <img src="https://github.com/HemantDutta/EnergyJS/blob/main/github/en_home.png" alt="EnergyJS Logo" width="50%">
+</div>
 EnergyJS is a free, lightweight and versatile JavaScript animation library designed to simplify the process of creating dynamic animations for web applications.
 
 ## Features 💻
