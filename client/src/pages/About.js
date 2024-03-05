@@ -1,10 +1,17 @@
 import {Navbar} from "../components/Navbar";
 import {Footer} from "../components/Footer";
 import {ScrollTop} from "../components/ScrollTop";
+import {Helmet} from "react-helmet-async";
 
 export const About = () => {
     return (
         <>
+            {/*Helmet*/}
+            <Helmet>
+                <title>About | EnergyJS</title>
+                <link rel="canonical" href="/about"/>
+            </Helmet>
+            {/*Helmet End*/}
             <ScrollTop/>
             {/*  Navbar  */}
             <Navbar page={"about"}/>

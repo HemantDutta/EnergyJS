@@ -8,6 +8,7 @@ import {atomOneDarkReasonable} from 'react-syntax-highlighter/dist/esm/styles/hl
 import {useLocation} from "react-router-dom";
 import {blurMethods, chainMethods, jsxReactClick, jsxReactLoad, opacityMethods, jsxReactString, scaleMethods, rotateMethods, translateMethods, selectorGuideline, vanillaHTMLClick, vanillaHTMLLoad, vanillaHTMLString, brightnessMethods} from "../static/static";
 import supabase from "../config/supabaseClient";
+import {Helmet} from "react-helmet-async";
 
 export const Docs = () => {
 
@@ -72,6 +73,12 @@ export const Docs = () => {
 
     return (
         <>
+            {/*Helmet*/}
+            <Helmet>
+                <title>Docs | EnergyJS</title>
+                <link rel="canonical" href="/docs"/>
+            </Helmet>
+            {/*Helmet End*/}
             <ScrollTop/>
             <div className="outer-container h-screen overflow-y-hidden">
                 {/*  Navbar  */}

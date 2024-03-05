@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {Helmet} from "react-helmet-async";
 
 export const Error = () => {
 
@@ -27,6 +28,11 @@ export const Error = () => {
 
     return (
         <>
+            {/*Helmet*/}
+            <Helmet>
+                <title>404 | EnergyJS</title>
+            </Helmet>
+            {/*Helmet End*/}
             <div className="error h-screen w-screen flex items-center flex-col justify-center gap-5 relative" id="error">
                 <div className="overlay absolute top-0 left-0 h-screen w-screen z-20 bg-black opacity-90"/>
                 <img src="/assets/404/en_404_2.jpg" alt="404 Page" className="absolute top-0 left-0 object-center object-cover h-screen w-screen z-10"/>

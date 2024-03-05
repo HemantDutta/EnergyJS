@@ -303,7 +303,7 @@ export const Home = () => {
             {/*  Navbar End  */}
             {/*  Home Body  */}
             <div className="home" id="home">
-                {/*<PreLoader/>*/}
+                <PreLoader/>
                 {/*Hero*/}
                 <section className="hero h-screen w-full relative py-20 px-5 sm:px-10" id="hero">
                     <div className="hero-overlay absolute h-screen w-screen top-0 left-0 z-10"/>

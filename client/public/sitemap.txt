@@ -1,0 +1,4 @@
+https://energyjs.netlify.app/
+https://energyjs.netlify.app/docs
+https://energyjs.netlify.app/about
+https://energyjs.netlify.app/contact
