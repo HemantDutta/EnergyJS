@@ -26,7 +26,8 @@ export const Error = () => {
     return (
         <>
             <div className="error h-screen w-screen flex items-center flex-col justify-center gap-5 relative" id="error">
-                <img src="/assets/404/en_404_2.jpg" alt="404 Page" className="absolute top-0 left-0 h-screen w-screen"/>
+                <div className="overlay absolute top-0 left-0 h-screen w-screen z-20 bg-black opacity-80"/>
+                <img src="/assets/404/en_404_2.jpg" alt="404 Page" className="absolute top-0 left-0 object-center object-cover h-screen w-screen z-10"/>
                 <span className="main text-gradient text-9xl z-50 kode">404</span>
                 <span className="tag text-white text-4xl kode z-50">Page not found</span>
                 <span className="reroute text-white z-50">Rerouting in {count} seconds...</span>
