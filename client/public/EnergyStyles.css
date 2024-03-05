@@ -425,6 +425,12 @@ nav.docs {
     background: #14151a;
 }
 
+@media screen and (max-width: 450px) {
+    .docs:not(footer .docs) aside {
+        width: 100%;
+    }
+}
+
 .docs:not(footer .docs) .side-overlay {
     opacity: 0;
     display: none;

@@ -7,6 +7,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import {atomOneDarkReasonable} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {useLocation} from "react-router-dom";
 import {blurMethods, chainMethods, jsxReactClick, jsxReactLoad, opacityMethods, jsxReactString, scaleMethods, rotateMethods, translateMethods, selectorGuideline, vanillaHTMLClick, vanillaHTMLLoad, vanillaHTMLString, brightnessMethods} from "../static/static";
+import supabase from "../config/supabaseClient";
 
 export const Docs = () => {
 
@@ -48,6 +49,13 @@ export const Docs = () => {
         }
     }
 
+    //Update Download Count
+    async function updateDownloadCount(name) {
+        const {error} = await supabase
+            .from('en_downloads')
+            .insert({name: name});
+    }
+
     //Remove active class from sidebar
     useEffect(() => {
         const closeSidebar = () => {
@@ -76,7 +84,7 @@ export const Docs = () => {
                     {/*Sidebar Overlay End*/}
                     {/*  sidebar  */}
                     <aside className="h-full overflow-y-scroll px-5 sm:px-10 border-r-2 border-slate-800 z-50" ref={sidebar}>
-                        <div className="aside-container sticky h-full flex flex-col gap-5 py-10">
+                        <div className="aside-container mb-96 sticky h-full flex flex-col gap-5 py-10">
                             <span className="head text-gradient text-5xl anta mb-5">EnergyJS</span>
                             <i className="side-close fa-solid fa-x text-xl text-white absolute top-12 right-0 cursor-pointer" tabIndex={0} onClick={sidebarToggle}/>
                             <div className="panel flex flex-col gap-3">
@@ -161,8 +169,8 @@ export const Docs = () => {
                                                 <span>Plain JavaScript implies that you are not using any framework such as React, Angular, Vue, Next, Svelte, etc. </span>
                                             </div>
                                             <div className="cta flex flex-row gap-5 items-center flex-wrap">
-                                                <span className="energy-button-1 click">Download energy.min.js</span>
-                                                <span className="energy-button-2 click">Download energy.js</span>
+                                                <span className="energy-button-1 click cursor-pointer" onClick={()=>{document.getElementById("downEnMin").click()}}>Download energy.min.js</span>
+                                                <span className="energy-button-2 click cursor-pointer" onClick={()=>{document.getElementById("downEn").click()}}>Download energy.js</span>
                                             </div>
                                         </DocTab>
                                         {/*Get Started End*/}
@@ -360,6 +368,14 @@ export const Docs = () => {
                         </div>
                     </main>
                     {/*  Main End  */}
+                    {/*  hidden content  */}
+                    <a href="/data/energy.js" download className="hidden" onClick={() => {
+                        updateDownloadCount("energy.js")
+                    }} id="downEn"/>
+                    <a href="/data/energy.min.js" className="hidden" onClick={() => {
+                        updateDownloadCount("energy.min.js")
+                    }} download id="downEnMin"/>
+                    {/*  hidden content end  */}
                 </div>
                 {/*Body End*/}
             </div>
