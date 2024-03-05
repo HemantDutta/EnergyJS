@@ -1,5 +1,7 @@
 <!-- Your Logo Goes Here -->
-![Your Logo](path/to/your/logo.png)
+<center>
+![EnergyJS]([path/to/your/logo.png](https://github.com/HemantDutta/EnergyJS/blob/bb8763a3b5cbe34b8a42e38007daf3d0a371f0aa/client/public/github/en_logo.png))
+</center>
 
 # EnergyJS
 
@@ -12,6 +14,6 @@ EnergyJS is a free, lightweight and versatile JavaScript animation library desig
 - Cross-Browser Compatibility: Ensures seamless performance across various web browsers and platforms.
 - Customization Options: Provides extensive customization options for fine-tuning animations.
 - Optimized Performance: Delivers smooth and fluid animations for enhanced user experience.
-- 
+
 ## Documentation
 ### Read our documentation here: <a href="#" rel="noreferrer" target="_blank">Documentation</a> 
