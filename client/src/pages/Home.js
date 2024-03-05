@@ -9,6 +9,7 @@ import supabase from "../config/supabaseClient";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {PreLoader} from "../components/PreLoader";
+import {Helmet} from "react-helmet-async";
 
 export const Home = () => {
 
@@ -297,6 +298,9 @@ export const Home = () => {
     }, [])
     return (
         <>
+            <Helmet>
+                <title>EnergyJS: Free JavaScript Animation Library</title>
+            </Helmet>
             <ScrollTop/>
             {/*  Navbar  */}
             <Navbar page={"home"}/>
