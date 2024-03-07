@@ -6,7 +6,7 @@ import {SubDocTab} from "../components/SubDocTab";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import {atomOneDarkReasonable} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {useLocation} from "react-router-dom";
-import {blurMethods, chainMethods, jsxReactClick, jsxReactLoad, opacityMethods, jsxReactString, scaleMethods, rotateMethods, translateMethods, selectorGuideline, vanillaHTMLClick, vanillaHTMLLoad, vanillaHTMLString, brightnessMethods} from "../static/static";
+import {blurMethods, chainMethods, jsxReactClick, jsxReactLoad, opacityMethods, jsxReactString, scaleMethods, rotateMethods, translateMethods, selectorGuideline, vanillaHTMLClick, vanillaHTMLLoad, vanillaHTMLString, brightnessMethods, heightMethods, widthMethods, topBottomLeftRight} from "../static/static";
 import supabase from "../config/supabaseClient";
 import {Helmet} from "react-helmet-async";
 
@@ -152,7 +152,21 @@ export const Docs = () => {
                                         sidebarToggle()
                                     }} tabIndex={0} className={`text-white text-lg cursor-pointer transition hover:text-cyan-100 hover:border-slate-400 w-max py-1 pl-2 border-l-2 border-slate-800 ${activeComp === "brightness" ? "active" : ""}`}>Brightness
                                     </li>
-                                    <li className={`text-white text-lg cursor-pointer transition hover:text-cyan-100 hover:border-slate-400 w-max py-1 pl-2 border-l-2 border-slate-800`}>More Coming Soon...</li>
+                                    <li onClick={() => {
+                                        setActiveComp("height");
+                                        sidebarToggle()
+                                    }} tabIndex={0} className={`text-white text-lg cursor-pointer transition hover:text-cyan-100 hover:border-slate-400 w-max py-1 pl-2 border-l-2 border-slate-800 ${activeComp === "height" ? "active" : ""}`}>Height
+                                    </li>
+                                    <li onClick={() => {
+                                        setActiveComp("width");
+                                        sidebarToggle()
+                                    }} tabIndex={0} className={`text-white text-lg cursor-pointer transition hover:text-cyan-100 hover:border-slate-400 w-max py-1 pl-2 border-l-2 border-slate-800 ${activeComp === "width" ? "active" : ""}`}>Width
+                                    </li>
+                                    <li onClick={() => {
+                                        setActiveComp("top");
+                                        sidebarToggle()
+                                    }} tabIndex={0} className={`text-white text-lg cursor-pointer transition hover:text-cyan-100 hover:border-slate-400 w-max py-1 pl-2 border-l-2 border-slate-800 ${activeComp === "top" ? "active" : ""}`}>Top, Bottom, Left & Right
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -387,12 +401,46 @@ export const Docs = () => {
                                     <>
                                         <DocTab head="Height" tag="Here's how to use all the Height animation methods">
                                             <ul className="trans-list list-disc pl-10">
-                                                <li className="text-white">"h" argument expects a pixel value. e.g. <span className="blue-2 kode">box.blur(amt:100,dur:800)</span></li>
+                                                <li className="text-white">"h" argument expects a percentage value without the % symbol. e.g. <span className="blue-2 kode">box.heightFrom(h:"100",dur:800)</span></li>
+                                                <li className="text-white">"hFrom" and "hTo" argument expects a percentage value without the % symbol. e.g. <span className="blue-2 kode">box.heightFromTo(hFrom:"100", hTo:"10",dur:800)</span></li>
                                                 <li className="text-white">"dur" argument expects duration in milliseconds.</li>
                                             </ul>
-                                            <SubDocTab head="Available Methods" tag="Here are all the Brightness based methods and their implementation: ">
+                                            <SubDocTab head="Available Methods" tag="Here are all the Height based methods and their implementation: ">
                                                 <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
-                                                    {brightnessMethods}
+                                                    {heightMethods}
+                                                </SyntaxHighlighter>
+                                            </SubDocTab>
+                                        </DocTab>
+                                    </>
+                                }
+                                {
+                                    activeComp === "width" &&
+                                    <>
+                                        <DocTab head="Width" tag="Here's how to use all the Width animation methods">
+                                            <ul className="trans-list list-disc pl-10">
+                                                <li className="text-white">"w" argument expects a percentage value without the % symbol. e.g. <span className="blue-2 kode">box.widthFrom(h:"100",dur:800)</span></li>
+                                                <li className="text-white">"wFrom" and "wTo" argument expects a percentage value without the % symbol. e.g. <span className="blue-2 kode">box.widthFromTo(wFrom:"100", wTo:"10",dur:800)</span></li>
+                                                <li className="text-white">"dur" argument expects duration in milliseconds.</li>
+                                            </ul>
+                                            <SubDocTab head="Available Methods" tag="Here are all the Width based methods and their implementation: ">
+                                                <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
+                                                    {widthMethods}
+                                                </SyntaxHighlighter>
+                                            </SubDocTab>
+                                        </DocTab>
+                                    </>
+                                }
+                                {
+                                    activeComp === "top" &&
+                                    <>
+                                        <DocTab head="Top, Bottom, Left & Right" tag="Here's how to use all these animation methods">
+                                            <ul className="trans-list list-disc pl-10">
+                                                <li className="text-white">"tFrom", "tTo", "bFrom", "bTo", "lFrom", "lTo", "rFrom" and "rTo"  argument expects a percentage value without the % symbol. e.g. <span className="blue-2 kode">box.topFromTo(tFrom:"50", tTo:"25",dur:800)</span></li>
+                                                <li className="text-white">"dur" argument expects duration in milliseconds.</li>
+                                            </ul>
+                                            <SubDocTab head="Available Methods" tag="Here are all the methods and their implementation: ">
+                                                <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
+                                                    {topBottomLeftRight}
                                                 </SyntaxHighlighter>
                                             </SubDocTab>
                                         </DocTab>
