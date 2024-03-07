@@ -19,6 +19,8 @@ class Energy {
             this.elem.style.transition = `all ${dur}ms cubic-bezier(0.87, 0, 0.13, 1)`;
             this.elem.style.transform = `translateX(0%)`;
         }, 100);
+
+        return null;
     }
 
     //Translate Horizontally To
@@ -219,6 +221,100 @@ class Energy {
     brightnessTo(amt, dur) {
         this.elem.style.transition = `all ${dur}ms cubic-bezier(0.87, 0, 0.13, 1)`;
         this.elem.style.filter = `brightness(${amt}%)`;
+    }
+
+    //Height & Width Methods
+
+    //Height From
+    heightFrom(h, dur) {
+        this.elem.style.transition = `none`;
+        this.elem.style.height = `${h}%`;
+
+        setTimeout(() => {
+            this.elem.style.transition = `all ${dur}ms cubic-bezier(0.87, 0, 0.13, 1)`;
+            this.elem.style.height = `100%`;
+        }, 100)
+    }
+
+    //Height To
+    heightTo(h, dur) {
+        this.elem.style.transition = `all ${dur}ms cubic-bezier(0.87, 0, 0.13, 1)`;
+        this.elem.style.height = `${h}%`;
+    }
+
+    //Height From To
+    heightFromTo(hFrom, hTo, dur) {
+        this.elem.style.transition = `none`;
+        this.elem.style.height = `${hFrom}%`;
+
+        setTimeout(() => {
+            this.elem.style.transition = `all ${dur}ms cubic-bezier(0.87, 0, 0.13, 1)`;
+            this.elem.style.height = `${hTo}%`;
+        }, 100)
+    }
+
+    //Width From
+    widthFrom(w, dur) {
+        this.elem.style.transition = `none`;
+        this.elem.style.width = `${w}%`;
+
+        setTimeout(() => {
+            this.elem.style.transition = `all ${dur}ms cubic-bezier(0.87, 0, 0.13, 1)`;
+            this.elem.style.width = `100%`;
+        }, 100)
+    }
+
+    //Width From To
+    widthFromTo(wFrom, wTo, dur) {
+        this.elem.style.transition = `none`;
+        this.elem.style.width = `${wFrom}%`;
+
+        setTimeout(() => {
+            this.elem.style.transition = `all ${dur}ms cubic-bezier(0.87, 0, 0.13, 1)`;
+            this.elem.style.width = `${wTo}%`;
+        }, 100)
+    }
+
+
+    //Top | Bottom | Left | Right  Methods
+    topFromTo(tFrom, tTo, dur) {
+        this.elem.style.transition = `none`;
+        this.elem.style.top = `${tFrom}%`;
+
+        setTimeout(() => {
+            this.elem.style.transition = `all ${dur}ms cubic-bezier(0.87, 0, 0.13, 1)`;
+            this.elem.style.top = `${tTo}%`;
+        }, 100)
+    }
+
+    bottomFromTo(bFrom, bTo, dur) {
+        this.elem.style.transition = `none`;
+        this.elem.style.bottom = `${bFrom}%`;
+
+        setTimeout(() => {
+            this.elem.style.transition = `all ${dur}ms cubic-bezier(0.87, 0, 0.13, 1)`;
+            this.elem.style.bottom = `${bTo}%`;
+        }, 100)
+    }
+
+    rightFromTo(rFrom, rTo, dur) {
+        this.elem.style.transition = `none`;
+        this.elem.style.right = `${rFrom}%`;
+
+        setTimeout(() => {
+            this.elem.style.transition = `all ${dur}ms cubic-bezier(0.87, 0, 0.13, 1)`;
+            this.elem.style.right = `${rTo}%`;
+        }, 100)
+    }
+
+    leftFromTo(lFrom, lTo, dur) {
+        this.elem.style.transition = `none`;
+        this.elem.style.left = `${lFrom}%`;
+
+        setTimeout(() => {
+            this.elem.style.transition = `all ${dur}ms cubic-bezier(0.87, 0, 0.13, 1)`;
+            this.elem.style.left = `${lTo}%`;
+        }, 100)
     }
 
 }
