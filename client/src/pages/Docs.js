@@ -217,7 +217,7 @@ export const Docs = () => {
                                 {
                                     activeComp === "examples" &&
                                     <>
-                                        {/*Installation*/}
+                                        {/*Example*/}
                                         <DocTab head={"Examples"} tag={"Here are some of the ways you can use EnergyJS in your projects"}>
                                             <div className="description text-white flex flex-col gap-3">
                                                 <SubDocTab head={"Animate on event"} tag={"Here I will demonstrate how to trigger animations using the 'click' event, however you can get creative and try to implement other events as" +
@@ -254,7 +254,7 @@ export const Docs = () => {
                                                 </SubDocTab>
                                             </div>
                                         </DocTab>
-                                        {/*Installation End*/}
+                                        {/*Example End*/}
                                     </>
                                 }
                                 {
@@ -270,6 +270,17 @@ export const Docs = () => {
                                                     {selectorGuideline}
                                                 </SyntaxHighlighter>
                                                 <li className="text-white">We are currently in beta version, so if you find any issues in the library, please reach out to me <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="underline">here</a>.</li>
+                                            </ul>
+                                        </DocTab>
+                                    </>
+                                }
+                                {
+                                    activeComp === "new" &&
+                                    <>
+                                        <DocTab head="What's New" tag="Here's what's new in the current version:">
+                                            <ul className="new-list list-disc flex flex-col gap-5 pl-10">
+                                                <li className="text-white">v1.0: All animation methods are now available.</li>
+                                                <li className="text-white">v0.1(beta): Limited Number of Animation Methods available</li>
                                             </ul>
                                         </DocTab>
                                     </>
@@ -361,6 +372,22 @@ export const Docs = () => {
                                         <DocTab head="Brightness" tag="Here's how to use all the Brightness animation methods">
                                             <ul className="trans-list list-disc pl-10">
                                                 <li className="text-white">"amt" argument expects a pixel value. e.g. <span className="blue-2 kode">box.blur(amt:100,dur:800)</span></li>
+                                                <li className="text-white">"dur" argument expects duration in milliseconds.</li>
+                                            </ul>
+                                            <SubDocTab head="Available Methods" tag="Here are all the Brightness based methods and their implementation: ">
+                                                <SyntaxHighlighter language="html" style={atomOneDarkReasonable}>
+                                                    {brightnessMethods}
+                                                </SyntaxHighlighter>
+                                            </SubDocTab>
+                                        </DocTab>
+                                    </>
+                                }
+                                {
+                                    activeComp === "height" &&
+                                    <>
+                                        <DocTab head="Height" tag="Here's how to use all the Height animation methods">
+                                            <ul className="trans-list list-disc pl-10">
+                                                <li className="text-white">"h" argument expects a pixel value. e.g. <span className="blue-2 kode">box.blur(amt:100,dur:800)</span></li>
                                                 <li className="text-white">"dur" argument expects duration in milliseconds.</li>
                                             </ul>
                                             <SubDocTab head="Available Methods" tag="Here are all the Brightness based methods and their implementation: ">
