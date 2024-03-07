@@ -196,6 +196,51 @@ export const brightnessMethods = `// Brightness Methods
         box.brightnessTo(100, 800);
 `;
 
+export const heightMethods = `// Height Methods
+    
+        //Create Energy Object
+        const box = new Energy("#box");
+        
+        //Height from a certain percentage value to 100%
+        box.heightFrom("10", 800); //Don't add the percentage symbol
+        
+        //Height to a certain percentage value from default
+        box.brightnessTo("100", 800);
+        
+        //Height from a certain percentage value to another value
+        box.heightFromTo("100", "10", 800); //Takes Height from 100% to 10%
+`;
+
+export const widthMethods = `// Width Methods
+    
+        //Create Energy Object
+        const box = new Energy("#box");
+        
+        //Width from a certain percentage value to 100%
+        box.widthFrom("10", 800); //Don't add the percentage symbol
+        
+        //Width from a certain percentage value to another value
+        box.widthFromTo("100", "10", 800); //Takes Width from 100% to 10%
+`;
+
+export const topBottomLeftRight = `// Top, Bottom, Left, Right Methods
+    
+        //Create Energy Object
+        const box = new Energy("#box");
+        
+        //Top from a certain percentage value to another value
+        box.topFromTo("25", "50", 800);
+        
+        //Bottom from a certain percentage value to another value
+        box.bottomFromTo("25", "50", 800);
+        
+        //Left from a certain percentage value to another value
+        box.leftFromTo("25", "50", 800);
+        
+        //Right from a certain percentage value to another value
+        box.rightFromTo("25", "50", 800);
+`;
+
 export const vanillaHTMLClick = `<!DOCTYPE html>
 <html lang="en">
 <head>
