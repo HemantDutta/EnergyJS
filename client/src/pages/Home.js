@@ -209,7 +209,7 @@ export const Home = () => {
     useEffect(() => {
         const outerInterval = setInterval(()=>{
             if(version.current) {
-                const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()";
                 const checkNew = "Check What's New!";
 
                 let interval = null;
@@ -229,7 +229,7 @@ export const Home = () => {
                                     return checkNew[index];
                                 }
 
-                                return letters[Math.floor(Math.random() * 26)]
+                                return letters[Math.floor(Math.random() * letters.length-1)]
                             })
                             .join("");
 
@@ -245,7 +245,7 @@ export const Home = () => {
                                     return version.current.dataset.value[index];
                                 }
 
-                                return letters[Math.floor(Math.random() * 26)]
+                                return letters[Math.floor(Math.random() * letters.length-1)]
                             })
                             .join("");
 
@@ -497,7 +497,7 @@ export const Home = () => {
                                 }
                                 {
                                     errCount > 10 &&
-                                    <span className="text-red-600 text-lg">You have been banned from the playground</span>
+                                    <span className="text-red-600 text-lg text-center">You have been banned from the playground</span>
                                 }
                             </div>
                         </div>
