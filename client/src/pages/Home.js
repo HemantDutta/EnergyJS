@@ -339,7 +339,7 @@ export const Home = () => {
                     <div className="hero-content relative z-50 h-full flex flex-col gap-10 items-center justify-end">
                         <a href="https://github.com/HemantDutta/EnergyJS" className="high-tag chip sm:text-xl text-sm kode" rel="noreferrer" target="_blank">Github <i className="fa-brands fa-github"/></a>
                         <header className="relative">
-                            <Link to={"/docs"} state={"new"} className="version blue-1 font-bold kode absolute -right-5 -top-5 cursor-pointer hover:underline" ref={version} data-value="v1.0">v1.0</Link>
+                            <Link to={"/docs"} state={"What'sNew"} className="version blue-1 font-bold kode absolute -right-5 -top-5 cursor-pointer hover:underline" ref={version} data-value="v1.0">v1.0</Link>
                             <span className="head sm:text-9xl text-7xl text-white anta text-gradient" data-value="EnergyJS">EnergyJS</span>
                         </header>
                         <span className="low-tag text-center text-gray-500 sm:w-1/2 w-full">Free lightweight JavaScript animation library created by <a href="https://www.linkedin.com/in/hemantduttahd/" rel="noreferrer" target="_blank" className="transition hover:text-white">Hemant Dutta</a></span>

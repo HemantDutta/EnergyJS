@@ -117,6 +117,11 @@ export const Docs = () => {
                                         sidebarToggle()
                                     }} tabIndex={0} className={`text-white text-lg cursor-pointer transition hover:text-cyan-100 hover:border-slate-400 w-max py-1 pl-2 border-l-2 border-slate-800 ${activeComp === "guidelines" ? "active" : ""}`}>Guidelines
                                     </li>
+                                    <li onClick={() => {
+                                        setActiveComp("What'sNew");
+                                        sidebarToggle()
+                                    }} tabIndex={0} className={`text-white text-lg cursor-pointer transition hover:text-cyan-100 hover:border-slate-400 w-max py-1 pl-2 border-l-2 border-slate-800 ${activeComp === "What'sNew" ? "active" : ""}`}>What's New
+                                    </li>
                                 </ul>
                             </div>
                             <div className="panel flex flex-col gap-3">
@@ -289,7 +294,7 @@ export const Docs = () => {
                                     </>
                                 }
                                 {
-                                    activeComp === "new" &&
+                                    activeComp === "What'sNew" &&
                                     <>
                                         <DocTab head="What's New" tag="Here's what's new in the current version:">
                                             <ul className="new-list list-disc flex flex-col gap-5 pl-10">
